@@ -20,5 +20,4 @@ public class PrimeCheck {
 			System.out.println(n+" is prime number");
 		}
 	}
-
 }
