@@ -16,6 +16,9 @@ public class ArithmeticOperations {
 		
 		double num4 = 5.0/2;
 		System.out.println(num4);	//2.5
+		
+		double a=1;
+		System.out.println(a);	//1.0
 	}
 
 }
