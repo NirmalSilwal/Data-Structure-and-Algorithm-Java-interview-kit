@@ -6,7 +6,7 @@ public class ReverseArrays {
 
 		int[] arr = { 3, 1, 5, 8, 7 };
 
-		// first approach
+		// first approach: using another array
 		System.out.println("using first approach");
 
 		int[] answer = new int[arr.length];
@@ -16,10 +16,12 @@ public class ReverseArrays {
 
 			answer[start] = arr[i];
 			start++;
+
+			// answer[arr.length-i] = arr[i];
 		}
 		display(answer);
 
-		// second approach
+		// second approach: using same array
 		int front = 0;
 		int back = arr.length - 1;
 		for (int j = front; j <= arr.length / 2; j++) {
