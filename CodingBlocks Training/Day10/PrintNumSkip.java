@@ -35,8 +35,8 @@ public class PrintNumSkip {
 
 /*
  * output: 5 
-		   3 
-		   1 
-		   2 
-		   4
+	   3 
+	   1 
+	   2 
+	   4
  */
