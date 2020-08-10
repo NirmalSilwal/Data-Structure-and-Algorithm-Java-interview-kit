@@ -1,5 +1,8 @@
 package Lecture11;
 
+// complexity: O(2^mn) 
+// where m is total rows, n is total columns, and from every cell you have 2 paths to explore
+
 public class printMazePath {
 
 	public static void main(String[] args) {
