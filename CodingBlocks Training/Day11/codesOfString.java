@@ -9,6 +9,7 @@ public class codesOfString {
 	}
 
 	public static void printCodesOfString(String str, String result) {
+		
 		if (str.equals("")) {
 			System.out.println(result);
 			return;
@@ -21,7 +22,7 @@ public class codesOfString {
 
 		printCodesOfString(restStr, result + code1);
 
-		if (str.length() > 2) {
+		if (str.length() >= 2) {
 			String twoChar = str.substring(0, 2);
 			String restStr2 = str.substring(2);
 
