@@ -11,7 +11,7 @@ public class printKeypadCodes {
 	}
 
 	public static void printAllKeypadCodes(String str, String result) {
-		if (str.equals("")) {
+		if (str.length() == 0){
 			System.out.println(result);
 			return;
 		}
@@ -59,3 +59,34 @@ public class printKeypadCodes {
 		return "";
 	}
 }
+
+/*
+ *output:
+adg
+adh
+adi
+aeg
+aeh
+aei
+afg
+afh
+afi
+bdg
+bdh
+bdi
+beg
+beh
+bei
+bfg
+bfh
+bfi
+cdg
+cdh
+cdi
+ceg
+ceh
+cei
+cfg
+cfh
+cfi
+ */
