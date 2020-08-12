@@ -38,7 +38,7 @@ public class mazePathWithHurdles {
 																				// horizontally
 		printMazePathHurdle(arr, endRow, endCol, currentRow + 1, currentCol); // traverse
 																				// vertically
-		arr[currentRow][currentCol] = 1;
+		arr[currentRow][currentCol] = 0; // reset cell value to backtrack
 	}
 
 	public static void displayMatrix(int[][] arr) {
@@ -70,17 +70,17 @@ possible paths:
 --------------
 1190
 0190
-9111
+9110
 0911
 --------------
-1190
+1090
 1190
 9111
-0911
+0901
 --------------
+1090
 1190
-1190
-9111
+9110
 0911
 --------------
 
