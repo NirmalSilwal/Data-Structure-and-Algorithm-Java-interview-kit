@@ -1,18 +1,32 @@
 package GeeksForGeeks;
 
-/*
- * Given an unsorted array A of size N of non-negative integers, 
- * find a continuous sub-array which adds to a given number S.*/
+/*input:
+2
+5 12
+1 2 3 7 5
+2 4
 
-public class SubarraySum {
+output:
+2 4 
+*/
+
+import java.util.Scanner;
+
+public class subarraySum2 {
 
 	public static void main(String[] args) {
 
-		int[] arr = { 1, 2, 3, 7, 5 };
-		int[] arr2 = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-		int sum = 12;
-		subarraySum(arr, sum);
-		subarraySum(arr2, 15);
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		for (int i = 0; i < T; i++) {
+			int N = sc.nextInt();
+			int S = sc.nextInt();
+			int[] arr = new int[N];
+			for (int j = 0; j < N; j++) {
+				arr[j] = sc.nextInt();
+			}
+			subarraySum(arr, S);
+		}
 	}
 
 	public static void subarraySum(int[] arr, int sum) {
@@ -29,6 +43,6 @@ public class SubarraySum {
 
 			}
 		}
+		System.out.println(-1);
 	}
-
 }
