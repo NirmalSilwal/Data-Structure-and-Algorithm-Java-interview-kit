@@ -1,10 +1,9 @@
 package GeeksForGeeks;
 
 /*input:
-2
+1
 5 12
 1 2 3 7 5
-2 4
 
 output:
 2 4 
