@@ -22,6 +22,9 @@ public class binarySearch {
 		}
 		int mid = (start + end) / 2;
 
+		// when array is very large, use this formula to find mid index
+		// int mid = start + (end - start) / 2;
+
 		if (arr[mid] == key) {
 			return mid;
 		} else {
@@ -33,3 +36,5 @@ public class binarySearch {
 		}
 	}
 }
+
+// output : 6
