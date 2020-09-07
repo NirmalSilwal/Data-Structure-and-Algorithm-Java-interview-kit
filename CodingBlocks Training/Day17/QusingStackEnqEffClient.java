@@ -21,6 +21,7 @@ public class QusingStackEnqEffClient {
 		System.out.println("\ndeleting element: " + queue.dequeue());
 		queue.display();
 		
+		System.out.println("\nfront element is :" + queue.front());
 		System.out.println("\nsize of queue: "+ queue.size());
 	}
 
@@ -46,6 +47,8 @@ queue is Empty: false
 
 deleting element: 10
 20 >> 30 >> 40 >> 50 >> 
+
+front element is :20
 
 size of queue: 4
 */
