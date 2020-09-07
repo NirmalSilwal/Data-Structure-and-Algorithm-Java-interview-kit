@@ -1,6 +1,6 @@
 package Lecture17;
 
-public class reverseStack {
+public class ReverseStack {
 
 	public static void main(String[] args) throws Exception {
 
@@ -13,6 +13,8 @@ public class reverseStack {
 
 		stack.display();
 		reverseStack(stack, helper, 0);
+		stack.display();
+
 	}
 
 	public static void reverseStack(DynamicStack stack, DynamicStack helper, int id) throws Exception {
@@ -29,8 +31,12 @@ public class reverseStack {
 				stack.push(helper.pop());
 			}
 		}
-		
-		stack.display();
 	}
 
 }
+
+/*
+ * output: 
+ * 50 >> 40 >> 30 >> 20 >> 10 >>
+ * 10 >> 20 >> 30 >> 40 >> 50 >>
+ */
