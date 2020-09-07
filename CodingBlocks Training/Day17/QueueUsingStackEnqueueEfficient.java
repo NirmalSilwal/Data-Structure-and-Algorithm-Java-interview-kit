@@ -39,7 +39,22 @@ public class QueueUsingStackEnqueueEfficient {
 
 		return answer;
 	}
-
+	
+	// O(n) time, as we'r popping n elements
+	public int front() throws Exception{
+		while (this.primaryStack.size() != 1){
+			this.secStack.push(this.primaryStack.pop());
+		}
+		
+		int answer = this.primaryStack.top();
+		
+		while (!this.secStack.isEmpty()){
+			this.primaryStack.push(this.secStack.pop());
+		}
+		
+		return answer;
+	}
+	
 	// O(1) time
 	public void display() throws Exception {
 		reverseStack(primaryStack, secStack, 0);
