@@ -62,7 +62,7 @@ public class QueueUsingStackEnqueueEfficient {
 		reverseStack(primaryStack, secStack, 0);
 	}
 
-	public void reverseStack(DynamicStack s1, DynamicStack s2, int id) throws Exception {
+	private void reverseStack(DynamicStack s1, DynamicStack s2, int id) throws Exception {
 		if (s1.isEmpty()) {
 			return;
 		}
