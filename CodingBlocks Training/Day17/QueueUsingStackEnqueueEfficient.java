@@ -57,9 +57,9 @@ public class QueueUsingStackEnqueueEfficient {
 	
 	// O(1) time
 	public void display() throws Exception {
-		reverseStack(primaryStack, secStack, 0);
+		reverseStack(this.primaryStack, this.secStack, 0);
 		this.primaryStack.display();
-		reverseStack(primaryStack, secStack, 0);
+		reverseStack(this.primaryStack, this.secStack, 0);
 	}
 
 	private void reverseStack(DynamicStack s1, DynamicStack s2, int id) throws Exception {
