@@ -3,6 +3,7 @@ package Lecture19;
 import Lecture19.LinkedList.Node;
 
 // time complexity: O(N)
+// space complexity: O(1)
 
 public class KthNodeFromLast {
 
