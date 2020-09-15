@@ -28,15 +28,13 @@ public class mergeLinkedList {
 		System.out.println("List2: ");
 		list2.display();
 
-		LinkedList merged = mergeLinkedList(list1, list2);
+		LinkedList merged = getMergeSortedList(list1, list2);
 		System.out.println("merged list: ");
 		merged.display();
 	}
-
-	static public LinkedList mergeLinkedList(LinkedList list1, LinkedList list2) {
-
+	
+	static public LinkedList getMergeSortedList(LinkedList list1, LinkedList list2) {
 		LinkedList mergedList = new LinkedList();
-
 		Node temp1 = list1.head;
 		Node temp2 = list2.head;
 
