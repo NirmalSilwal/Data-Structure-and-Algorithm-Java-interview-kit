@@ -2,7 +2,7 @@ package Lecture19;
 /*
  * we'r using same LinkedList class as in Lecture18/Day18 folder, we didn't import
  * from another package as the Node class was protected and in different class, different package,
- * its visibility is not there. Either we could have changed visibility of Node, head, 
+ * it's visibility is not there. Either we could have changed visibility of Node, head, 
  * tail to be public, but rather than that I copied that same file in Lecture19 package, 
  * just not wanted to changed visibility from protected to public.
  */
@@ -27,6 +27,13 @@ public class LinkedList {
 		this.head = null;
 		this.tail = null;
 	}
+	
+	public LinkedList(Node head, Node tail, int size){
+		this.head = head;
+		this.tail = tail;
+		this.size = size;
+	}
+	
 
 	// O(1) time
 	public int size() {
@@ -183,6 +190,6 @@ public class LinkedList {
 			System.out.print(temp.data + "=>");
 			temp = temp.next;
 		}
-		System.out.println("END");
+		System.out.println("END\n");
 	}
 }
