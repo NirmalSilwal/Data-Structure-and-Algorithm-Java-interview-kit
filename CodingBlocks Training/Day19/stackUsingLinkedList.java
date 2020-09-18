@@ -25,7 +25,7 @@ public class stackUsingLinkedList {
 
 	// O(1) time
 	public boolean isEmpty() {
-		return this.list.size() == 0;
+		return this.size() == 0;
 	}
 
 	// O(1) time

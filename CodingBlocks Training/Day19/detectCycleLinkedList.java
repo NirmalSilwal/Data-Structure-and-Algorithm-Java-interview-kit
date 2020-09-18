@@ -40,7 +40,7 @@ public class detectCycleLinkedList {
 	// Floyd cycle detection algorithm
 	public static boolean detectCycle(LinkedList list) {
 		Node slow = list.head;
-		Node fast = list.tail;
+		Node fast = list.head;
 
 		while (slow.next != null && fast.next != null && fast.next.next != null) {
 			slow = slow.next;
