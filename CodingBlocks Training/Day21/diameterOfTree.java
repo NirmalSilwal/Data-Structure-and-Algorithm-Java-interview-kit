@@ -2,6 +2,8 @@ package Lecture21;
 
 import Lecture21.binaryTree.Node;
 
+// time complexity: O(N^2)
+
 public class diameterOfTree {
 
 	public static void main(String[] args) {
