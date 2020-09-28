@@ -59,7 +59,35 @@ public class HashMapDemo {
 
 }
 
-/*
- * output: {USA=200, Denmark=300, Nepal=100, India=250} 100 250 {USA=200,
- * Denmark=300, Nepal=100} false true null
+/* output:
+{USA=200, Denmark=300, Nepal=100, India=250}
+100
+250
+{USA=200, Denmark=300, Nepal=100}
+false
+true
+null
+{USA=200, Japan=300, Denmark=300, Nepal=100}
+{USA=200, Japan=500, Denmark=300, Nepal=100}
+
+all keys in hashmap:
+
+USA
+Japan
+Denmark
+Nepal
+
+all values in hashmap:
+
+200
+500
+300
+100
+
+all key and values in hashmap:
+
+USA => 200
+Japan => 500
+Denmark => 300
+Nepal => 100
  */
