@@ -1,5 +1,12 @@
 package com.maharishiuniversity.admit;
 
+/* Question:
+ * Write a function that accepts an array of non-negative integers and returns the second largest 
+ * integer in the array. Return -1 if there is no second largest.
+ * The signature of the function is
+ * int f(int[ ] a)
+ */
+
 public class SecondLargestElement {
 
 	public static void main(String[] args) {
