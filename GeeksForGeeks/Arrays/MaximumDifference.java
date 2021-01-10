@@ -51,18 +51,16 @@ public class MaximumDifference {
 
 	// O(N) Time | O(1) Space
 	public static int maxDiff2(int[] arr) {
-		int n = arr.length;
 		int result = Integer.MIN_VALUE;
-		int currentDiff = 0;
 		int currentMin = arr[0];
 		int diffWithMin = Integer.MIN_VALUE;
 
-		for (int i = 1; i < n; i++) {
-			currentDiff = arr[i] - currentDiff;
+		for (int i = 1; i < arr.length; i++) {
 			if (arr[i - 1] < currentMin) {
 				currentMin = arr[i - 1];
 			}
 			diffWithMin = arr[i] - currentMin;
+			
 			if (diffWithMin > result) {
 				result = diffWithMin;
 			}
