@@ -8,11 +8,14 @@ public class TrappingRainWater {
 		int[] arr2 = { 2, 0, 2 };
 		int[] arr3 = { 1, 2, 3 };
 		int[] arr4 = { 3, 2, 1 };
+		int[] arr5 = {3,5,2,3};
 
 		System.out.println(trappedWaterVolume(arr)); // 6
 		System.out.println(trappedWaterVolume(arr2)); // 2
 		System.out.println(trappedWaterVolume(arr3)); // 0
 		System.out.println(trappedWaterVolume(arr4)); // 0
+		System.out.println(trappedWaterVolume(arr5)); // 1
+
 
 	}
 
@@ -23,8 +26,8 @@ public class TrappingRainWater {
 
 		// excluding first and last wall as they can't hold water
 		for (int i = 1; i < n - 1; i++) {
-			int leftMax = 0;
-			int rightMax = 0;
+			int leftMax = arr[i];
+			int rightMax = arr[i];
 
 			// finding left max item (leftmost tall wall) for arr[i] - current wall
 			for (int j = 0; j < i; j++) {
