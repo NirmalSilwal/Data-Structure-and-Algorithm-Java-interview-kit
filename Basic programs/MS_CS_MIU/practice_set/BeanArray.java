@@ -22,6 +22,7 @@ public class BeanArray {
 			int twicePlus = twice + 1;
 			int half = arr[i] / 2;
 
+			result = 0;
 			for (int j = 0; j < arr.length; j++) {
 				if (arr[j] == twice || arr[j] == twicePlus || arr[j] == half) {
 					result = 1;
