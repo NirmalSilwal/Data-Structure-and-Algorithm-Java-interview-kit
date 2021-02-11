@@ -42,7 +42,8 @@ public class HollowArray {
 		int precedingCount = startZeroIndex;
 		int followingCount = arr.length - precedingCount - zeroCount;
 
-		result = precedingCount == zeroCount && zeroCount == followingCount ? 1 : 0;
+		// result = precedingCount == zeroCount && zeroCount == followingCount ? 1 : 0;
+		result = precedingCount == followingCount ? 1 : 0;
 
 		return result;
 	}
