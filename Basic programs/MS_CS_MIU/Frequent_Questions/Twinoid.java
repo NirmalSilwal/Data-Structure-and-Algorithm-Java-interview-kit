@@ -18,6 +18,10 @@ public class Twinoid {
 
 		int[] arr4 = { 3, 8, 5, 7, 3 };
 		System.out.println(isTwinoid(arr4)); // 0
+		
+		// added new test case to cover new edge case
+		int[] arr5 = { 3, 81, 5, 3, 20 };
+		System.out.println(isTwinoid(arr5)); // 0
 	}
 
 	// O(N) Time | O(1) Space
@@ -26,7 +30,7 @@ public class Twinoid {
 		int evenCount = 0;
 		boolean found = false;
 
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 0; i < arr.length - 1; i++) {
 			if (arr[i] % 2 == 0) {
 				evenCount++;
 
