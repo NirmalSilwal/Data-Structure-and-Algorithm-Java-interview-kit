@@ -11,26 +11,18 @@ public class MinimumDistance {
 	}
 
 	static int minDistance(int n) {
-		int fcount = 0;
-		int minimum = n;
-		int currFactor = 0;
+		int distance = n;
+		int prevFactor = 1;
 
-		for (int i = 1; i <= n; i++) {
+		for (int i = 2; i <= n; i++) {
 			if (n % i == 0) {
-				if (fcount == 0)
-					currFactor = i;
+				
+				if (i - prevFactor < distance)
+					distance = i - prevFactor;
 
-				fcount++;
-
-				if (fcount > 1) {
-					if (minimum > i - currFactor)
-						minimum = i - currFactor;
-
-					currFactor = i;
-				}
+				prevFactor = i;
 			}
 		}
-
-		return minimum;
+		return distance;
 	}
 }
