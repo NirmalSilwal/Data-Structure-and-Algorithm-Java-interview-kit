@@ -24,6 +24,7 @@ public class LinkedList {
 
 	}
 
+	// O(1) Time
 	public void addLast(int item) {
 		// create a new node
 		Node newNode = new Node();
@@ -43,6 +44,7 @@ public class LinkedList {
 		this.size++;
 	}
 
+	// O(1) Time
 	public void addFirst(int item) {
 		Node newNode = new Node();
 		newNode.data = item;
@@ -74,6 +76,7 @@ public class LinkedList {
 		return this.tail.data;
 	}
 
+	// O(N) Time
 	public int getAt(int index) throws Exception {
 		if (this.size == 0)
 			throw new Exception("LinkedList is empty...");
@@ -91,6 +94,7 @@ public class LinkedList {
 		return temp.data;
 	}
 
+	// O(N) Time
 	public Node getNodeAt(int index) throws Exception {
 		if (this.size == 0)
 			throw new Exception("LinkedList is empty...");
@@ -107,4 +111,98 @@ public class LinkedList {
 		}
 		return temp;
 	}
+
+	// O(N) Time
+	public void addAt(int index, int item) throws Exception {
+		if (index < 0 || index > this.size) {
+			throw new Exception("invalid index...");
+		}
+
+		if (index == 0 || this.size == 0) {
+			this.addFirst(item);
+			return;
+		}
+		if (index == this.size) {
+			this.addLast(item);
+			return;
+		}
+		Node nn = new Node();
+		nn.data = item;
+		nn.next = null;
+
+		Node temp = this.head;
+		int id = 1;
+		while (id < index) {
+			temp = temp.next;
+			id++;
+		}
+		// can also get above using getNodeAt(index-1)
+
+		nn.next = temp.next;
+		temp.next = nn;
+		this.size++;
+	}
+
+	// O(1) Time
+	public int removeFirst() throws Exception {
+		if (this.size == 0)
+			throw new Exception("LinkedList is empty");
+
+		int firstNodeItem = this.head.data;
+
+		if (this.size == 1) {
+			this.head = null;
+			this.tail = null;
+			this.size--;
+		} else {
+			this.head = this.head.next;
+			this.size--;
+		}
+		return firstNodeItem;
+	}
+
+	// O(N) Time
+	public int removeLast() throws Exception {
+		if (this.size == 0)
+			throw new Exception("LinkedList is empty");
+
+		int lastNodeItem = this.tail.data;
+
+		if (this.size == 1) {
+			this.head = null;
+			this.tail = null;
+			this.size--;
+		} else {
+			Node secondLast = this.getNodeAt(this.size - 2);
+			secondLast.next = null;
+			this.tail = secondLast;
+			this.size--;
+		}
+		return lastNodeItem;
+	}
+
+	// O(N) Time
+	public int removeAt(int index) throws Exception {
+		if (this.size == 0)
+			throw new Exception("LinkedList is empty");
+
+		if (index < 0 || index >= this.size)
+			throw new Exception("invalid index");
+
+		if (index == 0)
+			return this.removeFirst();
+		else if (index == this.size - 1)
+			return this.removeLast();
+		else {
+			Node nodePrev = this.getNodeAt(index - 1);
+			int returnVal = nodePrev.next.data;
+
+			nodePrev.next = nodePrev.next.next;
+
+			this.size--;
+
+			return returnVal;
+		}
+	}
+
 }
