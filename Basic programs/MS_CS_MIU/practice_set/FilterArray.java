@@ -23,6 +23,9 @@ public class FilterArray {
 
 		int[] arr5 = { 4, 7, 13 };
 		System.out.println(isFilter(arr5)); // 0
+		
+		int[] arr6 = {3, 6, 5, 5, 13, 6, 13};
+		System.out.println(isFilter(arr6)); // 1
 	}
 
 	static int isFilter(int[] arr) {
@@ -31,7 +34,9 @@ public class FilterArray {
 
 		boolean has7 = false;
 		boolean has13 = false;
-
+		
+		boolean testcase = false;
+		
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] == 9)
 				has9 = true;
@@ -46,14 +51,14 @@ public class FilterArray {
 
 		if (has9 == true) {
 			if (has11 == true)
-				return 1;
+				testcase = true;
 			else
 				return 0;
 		}
 
 		if (has7 == true) {
 			if (has13 == false)
-				return 1;
+				testcase = true;
 			else
 				return 0;
 		}
