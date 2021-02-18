@@ -23,35 +23,59 @@ public class SingleMode {
 
 	}
 
+	
+	// O(N^2) Time
 	static int hasSingleMode(int[] arr) {
-		int[] allModesValues = new int[arr.length];
 
-		int maxCount = 0;
+		int uniqueCount = findUniqueCount(arr);
+		int[] uniqueItems = uniqueElements(arr, uniqueCount);
+		int[] modeCounts = new int[uniqueCount];
+
 		int index = 0;
-
-		for (int i = 0; i < arr.length; i++) {
-			int currCount = 0;
-
+		for (int i = 0; i < uniqueItems.length; i++) {
+			int count = 0;
 			for (int j = 0; j < arr.length; j++) {
-				if (arr[i] == arr[j])
-					currCount++;
+				if (uniqueItems[i] == arr[j])
+					count++;
 			}
-			if (currCount > maxCount) {
-				maxCount = currCount;
-				allModesValues[0] = arr[i];
-				index++;
-			} else if (currCount == maxCount) {
-				allModesValues[index] = arr[i];
+			modeCounts[index] = count;
+			index++;
+		}
+
+		int mode = modeCounts[0];
+		for (int i = 1; i < modeCounts.length; i++) {
+			if (modeCounts[i] > mode)
+				mode = modeCounts[i];
+		}
+
+		int duplicateModes = 0;
+		for (int i = 0; i < modeCounts.length; i++) {
+			if (modeCounts[i] == mode)
+				duplicateModes++;
+		}
+
+		return duplicateModes == 1 ? 1 : 0;
+	}
+
+	// O(N^2) Time
+	private static int[] uniqueElements(int[] arr, int uniqueCount) {
+		int[] ans = new int[uniqueCount];
+		int index = 0;
+		for (int i = 0; i < arr.length; i++) {
+			int j;
+			for (j = 0; j < i; j++) {
+				if (arr[i] == arr[j])
+					break;
+			}
+			if (i == j) {
+				ans[index] = arr[i];
 				index++;
 			}
 		}
-
-		int uniqueCount = findUniqueCount(allModesValues);
-
-		return uniqueCount - 1 == 1 ? 1 : 0;
-
+		return ans;
 	}
 
+	// O(N^2) Time
 	private static int findUniqueCount(int[] arr) {
 		int res = 0;
 		int n = arr.length;
