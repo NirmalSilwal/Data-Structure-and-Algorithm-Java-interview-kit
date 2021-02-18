@@ -43,5 +43,28 @@ public class AllPossibilitiesArray {
 
 		return 1;
 	}
+	
+	// approach 2
+	// O(N^2) Time | O(1) Space
+	static int isAllPossibilities2(int[] arr) {
+		if (arr.length < 1)
+			return 0;
+
+		int n = arr.length - 1;
+		int result;
+		for (int element = 0; element <= n; element++) {
+			result = 0;
+			for (int i = 0; i < arr.length; i++) {
+				if (arr[i] == element) {
+					result = 1;
+					break;
+				}
+			}
+			if (result == 0)
+				return result;
+		}
+
+		return 1;
+	}
 
 }
