@@ -248,4 +248,22 @@ public class LinkedList {
 
 		this.tail.next = null;
 	}
+
+	public int midNode() throws Exception {
+		if (this.size == 0)
+			throw new Exception("LinkedList is empty");
+
+		if (this.size < 3)
+			return this.head.data;
+
+		Node slow = this.head;
+		Node fast = this.head;
+
+		while (fast.next != null && fast.next.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;
+		}
+
+		return slow.data;
+	}
 }
