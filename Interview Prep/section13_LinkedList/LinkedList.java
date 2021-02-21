@@ -205,4 +205,47 @@ public class LinkedList {
 		}
 	}
 
+	public void reverseData() throws Exception {
+		if (this.size == 0)
+			throw new Exception("LinkedList is empty");
+
+		int left = 0;
+		int right = this.size - 1;
+
+		while (left < right) {
+
+			Node front = this.getNodeAt(left);
+			Node back = this.getNodeAt(right);
+
+			int temp = front.data;
+			front.data = back.data;
+			back.data = temp;
+
+			left++;
+			right--;
+		}
+	}
+
+	public void reversePointer() throws Exception {
+		if (this.size == 0)
+			throw new Exception("LinkedList is empty");
+
+		Node prev = this.head;
+		Node curr = prev.next;
+
+		while (curr != null) {
+			Node ahead = curr.next;
+			curr.next = prev;
+
+			prev = curr;
+			curr = ahead;
+		}
+
+		// swap head and tail
+		Node temp = this.head;
+		this.head = this.tail;
+		this.tail = temp;
+
+		this.tail.next = null;
+	}
 }
