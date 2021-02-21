@@ -32,5 +32,18 @@ public class GetExponent {
 
 		return x;
 	}
+	
+	static int getExponentNoLibrary(int n, int p) {
+		if (p <= 1)
+			return -1;
+
+		int power = 0;
+		int powcalculated = p;
+		while (n % powcalculated == 0) {
+			power++;
+			powcalculated *= p;
+		}
+		return power;
+	}
 
 }
