@@ -65,6 +65,26 @@ public class LinkedListClient {
 		System.out.println(list.removeAt(0));
 		list.display();
 
+		System.out.println("reverse data");
+		list.reverseData();
+		list.display();
+
+		list.reverseData();
+		list.display();
+
+		System.out.println("reverse pointer");
+		System.out.println("before: ");
+		list.display();
+		list.reversePointer();
+		System.out.println("after: ");
+
+		list.display();
+
+		System.out.println("\nmid node:" + list.midNode());
+		list.addLast(100);
+		list.display();
+		System.out.println("\nmid node:" + list.midNode());
+
 	}
 
 }
