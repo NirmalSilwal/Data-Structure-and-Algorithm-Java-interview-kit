@@ -3,6 +3,7 @@ package section14_Tree;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class BinaryTree {
 
@@ -176,7 +177,7 @@ public class BinaryTree {
 	}
 
 	// check if given binary tree is BST
-	// approach 1
+	// approach 1, using in-order traversal
 	public boolean isBinaryTreeTheBST() {
 		ArrayList<Integer> inOrder = getInOrder(this.root, new ArrayList<Integer>());
 
@@ -205,7 +206,7 @@ public class BinaryTree {
 		return true;
 	}
 
-	// approach 2
+	// approach 2, using potential range of node values
 	public boolean isBST() {
 		boolean ans = isBinaryTreeTheBST2(this.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
 		return ans;
@@ -223,5 +224,59 @@ public class BinaryTree {
 			return false;
 
 		return true;
+	}
+
+	public void inOrderIterative() {
+		ArrayList<Integer> inOrderResult = this.inOrderIterative(this.root);
+		System.out.println(inOrderResult);
+	}
+
+	private ArrayList<Integer> inOrderIterative(Node node) {
+		if (node == null) {
+			ArrayList<Integer> baseResult = new ArrayList<Integer>();
+			return baseResult;
+		}
+
+		Stack<Node> stack = new Stack<Node>();
+		ArrayList<Integer> traversal = new ArrayList<Integer>();
+
+		while (true) {
+
+			if (node != null) {
+				stack.add(node);
+				node = node.left;
+
+			} else {
+				if (stack.isEmpty()) {
+					break;
+				} else {
+					node = stack.pop();
+					traversal.add(node.data);
+					node = node.right;
+				}
+			}
+		}
+
+		return traversal;
+	}
+
+	// find sum of all leaf nodes in binary tree
+	public int sumOfLeafs() {
+		return this.sumOfLeafs(this.root);
+	}
+
+	private int sumOfLeafs(Node node) {
+		if (node == null)
+			return 0;
+
+		if (node.left == null && node.right == null)
+			return node.data;
+
+		int leftSubtreeLeafSum = sumOfLeafs(node.left);
+		int rightSubtreeLeafSum = sumOfLeafs(node.right);
+
+		int sum = leftSubtreeLeafSum + rightSubtreeLeafSum;
+
+		return sum;
 	}
 }
