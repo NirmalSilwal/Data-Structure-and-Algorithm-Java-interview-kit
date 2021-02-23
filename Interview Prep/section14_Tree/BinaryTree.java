@@ -1,5 +1,6 @@
 package section14_Tree;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -172,5 +173,55 @@ public class BinaryTree {
 			if (removedNode.right != null)
 				queue.addLast(removedNode.right);
 		}
+	}
+
+	// check if given binary tree is BST
+	// approach 1
+	public boolean isBinaryTreeTheBST() {
+		ArrayList<Integer> inOrder = getInOrder(this.root, new ArrayList<Integer>());
+
+		boolean checkBst = isSorted(inOrder);
+
+		return checkBst;
+	}
+
+	private ArrayList<Integer> getInOrder(Node node, ArrayList<Integer> list) {
+		if (node == null) {
+			return list;
+		}
+		// LNR
+		getInOrder(node.left, list);
+		list.add(node.data);
+		getInOrder(node.right, list);
+
+		return list;
+	}
+
+	private boolean isSorted(ArrayList<Integer> list) {
+		for (int index = 0; index < list.size() - 1; index++) {
+			if (list.get(index) > list.get(index + 1))
+				return false;
+		}
+		return true;
+	}
+
+	// approach 2
+	public boolean isBST() {
+		boolean ans = isBinaryTreeTheBST2(this.root, Integer.MIN_VALUE, Integer.MAX_VALUE);
+		return ans;
+	}
+
+	private boolean isBinaryTreeTheBST2(Node node, int min, int max) {
+		if (node == null)
+			return true;
+
+		if (node.data < min || node.data > max)
+			return false;
+		else if (!isBinaryTreeTheBST2(node.left, min, node.data))
+			return false;
+		else if (!isBinaryTreeTheBST2(node.right, node.data, max))
+			return false;
+
+		return true;
 	}
 }
