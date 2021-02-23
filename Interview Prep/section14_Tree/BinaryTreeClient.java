@@ -9,13 +9,29 @@ public class BinaryTreeClient {
 		btree.display();
 
 		/*
-		 * 50 true 25 true 38 false false true 48 true 18 false false false true 45 true 85 false false true 60 false false
+		 * 50 true 25 true 38 false false true 48 true 18 false false false true
+		 * 45 true 85 false false true 60 false false
 		 */
+
+		System.out.println("\nHeight of tree: " + btree.height());
+
+		System.out.println("\nPre-order traversal");
+		btree.preOrderTraversal();
+
+		System.out.println("\n\nIn-order traversal");
+		btree.inOrderTraversal();
+
+		System.out.println("\n\nPost-order traversal");
+		btree.postOrderTraversal();
+
+		System.out.println("\n\nLevel-order traversal");
+		btree.levelOrderTraversal();
 	}
 
 }
 
 /* output:
+
 Enter data for root node: 
 50 true 25 true 38 false false true 48 true 18 false false false true 45 true 85 false false true 60 false false
 Is there left child of 50? Press true/false
@@ -50,4 +66,18 @@ NULL => 18 <= NULL
 85 => 45 <= 60
 NULL => 85 <= NULL
 NULL => 60 <= NULL
+
+Height of tree: 3
+
+Pre-order traversal
+50 25 38 48 18 45 85 60 
+
+In-order traversal
+38 25 18 48 50 85 45 60 
+
+Post-order traversal
+38 18 48 25 85 60 45 50 
+
+Level-order traversal
+50 25 45 38 48 85 60 18 
 */
