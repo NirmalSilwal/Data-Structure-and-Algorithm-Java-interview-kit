@@ -1,5 +1,6 @@
 package section14_Tree;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BinaryTree {
@@ -84,6 +85,92 @@ public class BinaryTree {
 		}
 		if (node.right != null) {
 			this.display(node.right);
+		}
+	}
+
+	public int height() {
+		return this.height(this.root);
+	}
+
+	private int height(Node node) {
+		if (node == null)
+			return -1;
+
+		int leftHeight = this.height(node.left);
+		int rightHeight = this.height(node.right);
+
+		// +1 for edge between left node and root / right node and root
+		int heightOfTree = Math.max(leftHeight, rightHeight) + 1;
+
+		return heightOfTree;
+	}
+
+	// tree traversals
+
+	public void preOrderTraversal() {
+		this.preOrderTraversal(this.root);
+	}
+
+	private void preOrderTraversal(Node node) {
+		if (node == null)
+			return;
+
+		// NLR: Node Left Right
+		System.out.print(node.data + " ");
+		preOrderTraversal(node.left);
+		preOrderTraversal(node.right);
+	}
+
+	public void inOrderTraversal() {
+		this.inOrderTraversal(this.root);
+	}
+
+	private void inOrderTraversal(Node node) {
+		if (node == null)
+			return;
+
+		// LNR
+		inOrderTraversal(node.left);
+		System.out.print(node.data + " ");
+		inOrderTraversal(node.right);
+
+	}
+
+	public void postOrderTraversal() {
+		this.postOrderTraversal(this.root);
+	}
+
+	private void postOrderTraversal(Node node) {
+		if (node == null)
+			return;
+
+		// LRN
+		postOrderTraversal(node.left);
+		postOrderTraversal(node.right);
+		System.out.print(node.data + " ");
+	}
+
+	public void levelOrderTraversal() {
+		this.levelOrderTraversal(this.root);
+	}
+
+	private void levelOrderTraversal(Node node) {
+		if (node == null)
+			return;
+		// using Queue data structure using LinkedList
+		LinkedList<Node> queue = new LinkedList<Node>();
+
+		queue.addLast(node);
+
+		while (!queue.isEmpty()) {
+			Node removedNode = queue.removeFirst();
+			System.out.print(removedNode.data + " ");
+
+			if (removedNode.left != null)
+				queue.addLast(removedNode.left);
+
+			if (removedNode.right != null)
+				queue.addLast(removedNode.right);
 		}
 	}
 }
