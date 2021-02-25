@@ -59,4 +59,56 @@ public class BinarySearchTree {
 			this.display(node.right);
 
 	}
+
+	public boolean find(int item) {
+		return this.find(item, this.root);
+	}
+
+	private boolean find(int item, Node node) {
+		if (node == null)
+			return false;
+
+		if (item == node.data)
+			return true;
+
+		if (item < node.data)
+			return find(item, node.left);
+		else
+			return find(item, node.right);
+	}
+
+	// find max item in BST
+	public int max() {
+		return this.max2(this.root);
+	}
+
+	private int max(Node node) {
+		if (node == null)
+			return -1;
+
+		if ((node.left == null && node.right == null) || (node.left != null && node.right == null))
+			return node.data;
+
+		return max(node.right);
+	}
+
+	// clean approach
+	private int max2(Node node) {
+		if (node.right == null)
+			return node.data;
+
+		return max2(node.right);
+	}
+
+	// find min item in BST
+	public int min() {
+		return this.min(this.root);
+	}
+
+	private int min(Node node) {
+		if (node.left == null)
+			return node.data;
+
+		return min(node.left);
+	}
 }
