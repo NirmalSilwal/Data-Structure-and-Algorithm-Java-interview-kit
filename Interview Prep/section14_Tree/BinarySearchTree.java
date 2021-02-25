@@ -111,4 +111,34 @@ public class BinarySearchTree {
 
 		return min(node.left);
 	}
+
+	public void addItem(int item) {
+		this.addItem(item, this.root);
+	}
+
+	private void addItem(int item, Node node) {
+
+		if (item < node.data || item == node.data) {
+
+			if (node.left == null) {
+
+				Node newNode = new Node();
+				newNode.data = item;
+
+				node.left = newNode;
+			} else
+				addItem(item, node.left);
+
+		} else {
+
+			if (node.right == null) {
+
+				Node newNode = new Node();
+				newNode.data = item;
+
+				node.right = newNode;
+			} else
+				addItem(item, node.right);
+		}
+	}
 }
