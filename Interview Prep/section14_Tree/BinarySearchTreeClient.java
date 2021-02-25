@@ -8,6 +8,16 @@ public class BinarySearchTreeClient {
 		BinarySearchTree bst = new BinarySearchTree(inOrderArray);
 
 		bst.display();
+
+		System.out.println(bst.find(30));
+		System.out.println(bst.find(3));
+
+		System.out.println(bst.max());
+		System.out.println(bst.min());
+
+		System.out.println();
+		bst.addItem(55);
+		bst.display();
 	}
 
 }
