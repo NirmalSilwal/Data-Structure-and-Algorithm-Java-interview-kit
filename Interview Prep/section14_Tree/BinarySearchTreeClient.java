@@ -18,6 +18,11 @@ public class BinarySearchTreeClient {
 		System.out.println();
 		bst.addItem(55);
 		bst.display();
+
+		System.out.println("---------");
+		bst.removeItem(55);
+		bst.display();
+
 	}
 
 }
