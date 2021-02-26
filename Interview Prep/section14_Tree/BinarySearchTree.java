@@ -79,22 +79,22 @@ public class BinarySearchTree {
 
 	// find max item in BST
 	public int max() {
-		return this.max2(this.root);
+		return this.max(this.root);
 	}
 
+	// clean approach
 	private int max(Node node) {
-		if (node == null)
-			return -1;
-
-		if ((node.left == null && node.right == null) || (node.left != null && node.right == null))
+		if (node.right == null)
 			return node.data;
 
 		return max(node.right);
 	}
 
-	// clean approach
 	private int max2(Node node) {
-		if (node.right == null)
+		if (node == null)
+			return -1;
+
+		if ((node.left == null && node.right == null) || (node.left != null && node.right == null))
 			return node.data;
 
 		return max2(node.right);
@@ -139,6 +139,56 @@ public class BinarySearchTree {
 				node.right = newNode;
 			} else
 				addItem(item, node.right);
+		}
+	}
+
+	public void removeItem(int item) {
+		this.removeItem(this.root, null, false, item);
+	}
+
+	private void removeItem(Node node, Node parent, boolean isLeftChild, int item) {
+
+		// case 1
+		if (item > node.data) {
+			removeItem(node.right, node, false, item);
+
+			// case 2
+		} else if (item < node.data) {
+			removeItem(node.left, node, true, item);
+
+		} else {
+			// case 3.1, to remove leaf node
+			if (node.left == null && node.right == null) {
+				if (isLeftChild)
+					parent.left = null;
+				else
+					parent.right = null;
+
+				// case 3.2, if node to be removed has it's left child null
+			} else if (node.left == null && node.right != null) {
+				if (isLeftChild)
+					parent.left = node.right;
+				else
+					parent.right = node.right;
+
+				// case 3.3, if node to be removed has it's right child null
+			} else if (node.left != null && node.right == null) {
+				if (isLeftChild)
+					parent.left = node.left;
+				else
+					parent.right = node.left;
+
+				// case 3.4, if node to be removed has both left and right child
+			} else {
+				// replace max item from it's left subtree to the node
+				// to be removed and remove that max value in it's original
+				// location in the tree
+				// another way is to replace with min value from right subtree
+				int maxVal = this.max(node.left);
+				node.data = maxVal;
+
+				removeItem(node.left, node, true, maxVal);
+			}
 		}
 	}
 }
