@@ -147,7 +147,10 @@ public class BinarySearchTree {
 	}
 
 	private void removeItem(Node node, Node parent, boolean isLeftChild, int item) {
-
+		// if element is not present in BST
+		if (node == null)
+			return;
+		
 		// case 1
 		if (item > node.data) {
 			removeItem(node.right, node, false, item);
