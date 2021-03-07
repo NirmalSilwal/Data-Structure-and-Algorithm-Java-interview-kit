@@ -7,8 +7,10 @@ public class SubarraySumZero {
 	public static void main(String[] args) {
 
 		int[] arr = { 3, -5, -8, 9, -1 }; // true
-
 		System.out.println(subArrayZero(arr));
+
+		int[] arr2 = { 13, -5, -8, 9, 1 }; // true
+		System.out.println(subArrayZero(arr2));
 	}
 
 	// O(N) Time
@@ -16,10 +18,10 @@ public class SubarraySumZero {
 		HashMap<Integer, Boolean> map = new HashMap<>();
 		map.put(arr[0], true);
 
-		int prefixSum = 0;
+		int prefixSum = arr[0];
 		for (int index = 1; index < arr.length; index++) {
 			prefixSum += arr[index];
-			if (map.containsKey(prefixSum))
+			if (prefixSum == 0 || map.containsKey(prefixSum))
 				return true;
 			else
 				map.put(prefixSum, true);
