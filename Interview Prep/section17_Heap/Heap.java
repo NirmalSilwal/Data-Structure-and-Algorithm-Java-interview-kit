@@ -57,7 +57,27 @@ public class Heap {
 		return removedItem;
 	}
 
-	private void downheapify(int parentIndex) {
+	// clean code
+	public void downheapify(int pi) {
+		int lci = 2 * pi + 1;
+		int rci = 2 * pi + 2;
+
+		int minIndex = pi;
+
+		if (lci < this.size() && data.get(lci) < data.get(minIndex))
+			minIndex = lci;
+
+		if (rci < this.size() && data.get(rci) < data.get(minIndex))
+			minIndex = rci;
+
+		if (minIndex != pi) {
+			swap(minIndex, pi);
+			downheapify(minIndex);
+		}
+	}
+
+	/*
+	private void downheapify2(int parentIndex) {
 		int leftChildIndex = (2 * parentIndex) + 1;
 		int rightChildIndex = (2 * parentIndex) + 2;
 
@@ -80,7 +100,7 @@ public class Heap {
 
 			if (rightChild == -1) {
 				this.swap(parentIndex, leftChildIndex);
-				downheapify(leftChildIndex);
+				downheapify2(leftChildIndex);
 
 			} else {
 				int minVal = Math.min(leftChild, rightChild);
@@ -88,11 +108,12 @@ public class Heap {
 
 				this.swap(parentIndex, minIndex);
 
-				downheapify(minIndex);
+				downheapify2(minIndex);
 			}
 		}
 	}
-
+*/
+	
 	public int get() {
 		return this.data.get(0);
 	}
