@@ -8,9 +8,11 @@ public class EditDistance {
 		String s2 = "acgb";
 
 		System.out.println(editDistance(s1, s2)); // 2
+		System.out.println(editDistanceIterative(s1, s2)); // 2
 	}
 
 	// minimum changes required to make s2 equal to s1
+	// O(2^nm) Time, where n is length of s1, m is length of s2
 	public static int editDistance(String s1, String s2) {
 
 		if (s1.length() == 0)
@@ -34,5 +36,38 @@ public class EditDistance {
 		}
 
 		return result;
+	}
+
+	// DP approach
+	// O(nm) Time, where n is length of s1, m is length of s2
+	public static int editDistanceIterative(String s1, String s2) {
+		int[][] storage = new int[s1.length() + 1][s2.length() + 1];
+
+		// seed value
+		storage[s1.length()][s2.length()] = 0;
+
+		for (int row = s1.length(); row >= 0; row--) {
+			for (int col = s2.length(); col >= 0; col--) {
+
+				if (row == s1.length()) {
+					storage[row][col] = s2.length() - col;
+					continue;
+				}
+
+				if (col == s2.length()) {
+					storage[row][col] = s1.length() - row;
+					continue;
+				}
+
+				if (s1.charAt(row) == s2.charAt(col)) {
+					storage[row][col] = storage[row + 1][col + 1];
+				} else {
+					storage[row][col] = 1 + Math.min(storage[row + 1][col + 1],
+							Math.min(storage[row + 1][col], storage[row][col + 1]));
+				}
+			}
+		}
+
+		return storage[0][0];
 	}
 }
