@@ -9,13 +9,12 @@ public class Fibonacci {
 		System.out.println(fibonacci(nth, storage)); // 13
 		System.out.println(fibonacciIterativeDP(nth)); // 13
 		System.out.println(fibonacciNormal(nth)); // 13
-
+		System.out.println(fibBottomUpSpaceEfficient(nth)); // 13
 	}
 
-	// using memoization - recursive approach
-	// O(N) Time | O(N) Space
+	// using memoization - recursive approach, top down approach
+	// O(N) Time | O(N) Space + space taken by recursion stack
 	public static int fibonacci(int n, int[] storage) {
-
 		if (n == 0 || n == 1)
 			return n;
 
@@ -27,13 +26,16 @@ public class Fibonacci {
 		int fibb = fibnm1 + fibnm2;
 
 		storage[n] = fibb;
-		// System.out.println(Arrays.toString(storage));
+
 		return fibb;
 	}
 
-	// DP - iterative storage approach - DP
-	// O(N) Time | O(N) Space
+	// DP - iterative storage approach - DP, bottom-up approach
+	// O(N) Time | O(N) Space + space taken by recursion stack
 	public static int fibonacciIterativeDP(int n) {
+		if (n == 0 || n == 1)
+			return n;
+
 		int[] storage = new int[n + 1];
 
 		// seed values
@@ -47,8 +49,22 @@ public class Fibonacci {
 		return storage[n];
 	}
 
-	// without DP
-	// O(2^N) Time | O(1) Space
+	// O(n) Time | O(1) Space
+	public static int fibBottomUpSpaceEfficient(int n) {
+		if (n == 0 || n == 1)
+			return n;
+
+		int prev = 0, curr = 1;
+		for (int i = 2; i <= n; i++) {
+			int sum = prev + curr;
+			prev = curr;
+			curr = sum;
+		}
+		return curr;
+	}
+
+	// without DP, recursive solution
+	// O(2^N) Time | space taken by recursive stack
 	public static int fibonacciNormal(int n) {
 		if (n == 0 || n == 1)
 			return n;
