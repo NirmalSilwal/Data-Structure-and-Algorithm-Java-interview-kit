@@ -96,4 +96,28 @@ public class Graph {
 		}
 		System.out.println("--------------------------");
 	}
+
+	public boolean hasPath(String vname1, String vname2, HashMap<String, Boolean> processed) {
+
+		processed.put(vname1, true);
+
+		// check direct edge
+		if (this.containsEdge(vname1, vname2)) {
+			return true;
+		}
+
+		// check in neighbors
+		Vertex vtx = vertices.get(vname1);
+
+		ArrayList<String> neighbors1 = new ArrayList<>(vtx.nbrs.keySet());
+
+		for (String nbrKey : neighbors1) {
+			if (!processed.containsKey(nbrKey)) {
+				if (hasPath(nbrKey, vname2, processed)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }
