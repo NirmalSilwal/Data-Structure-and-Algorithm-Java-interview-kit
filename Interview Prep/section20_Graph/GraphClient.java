@@ -1,5 +1,7 @@
 package section20_Graph;
 
+import java.util.HashMap;
+
 public class GraphClient {
 
 	public static void main(String[] args) {
@@ -25,78 +27,39 @@ public class GraphClient {
 
 		graph.dispaly();
 
-		System.out.println(graph.containsVertex("D"));
-		System.out.println(graph.containsVertex("P"));
+		// System.out.println(graph.containsVertex("D"));
+		// System.out.println(graph.containsVertex("P"));
+		//
+		// System.out.println(graph.numVertex());
+		// System.out.println(graph.numEdges());
+		//
+		// System.out.println(graph.containsEdge("A", "D"));
+		// System.out.println(graph.containsEdge("C", "D"));
+		// System.out.println(graph.containsEdge("C", "G"));
+		//
+		// System.out.println("\nbefore: " + graph.numEdges());
+		// graph.removeEdge("E", "F");
+		// System.out.println("after: " + graph.numEdges());
+		//
+		// graph.dispaly();
+		//
+		// graph.addEdge("C", "F", 2);
+		// graph.dispaly();
+		//
+		// System.out.println("before: " + graph.numVertex());
+		// graph.removeVertex("F");
+		// System.out.println("after: " + graph.numVertex());
+		// graph.dispaly();
 
-		System.out.println(graph.numVertex());
-		System.out.println(graph.numEdges());
+		System.out.println("tesing hasPath() method..");
+		HashMap<String, Boolean> processed = new HashMap<>();
+		System.out.println(graph.hasPath("A", "F", processed));
 
-		System.out.println(graph.containsEdge("A", "D"));
-		System.out.println(graph.containsEdge("C", "D"));
-		System.out.println(graph.containsEdge("C", "G"));
+		System.out.println(graph.hasPath("A", "E", new HashMap<String, Boolean>()));
+		System.out.println(graph.hasPath("A", "G", new HashMap<String, Boolean>()));
+		System.out.println(graph.hasPath("G", "C", new HashMap<String, Boolean>()));
+		graph.removeEdge("D", "E");
+		System.out.println(graph.hasPath("B", "F", new HashMap<String, Boolean>()));
 
-		System.out.println("\nbefore: " + graph.numEdges());
-		graph.removeEdge("E", "F");
-		System.out.println("after: " + graph.numEdges());
-
-		graph.dispaly();
-
-		graph.addEdge("C", "F", 2);
-		graph.dispaly();
-
-		System.out.println("before: " + graph.numVertex());
-		graph.removeVertex("F");
-		System.out.println("after: " + graph.numVertex());
-		graph.dispaly();
 	}
 }
-
-/* output:
---------------------------
-A: {B=3, D=2}
-B: {A=3, C=4}
-C: {B=4, D=7}
-D: {A=2, C=7, E=10}
-E: {D=10, F=9, G=8}
-F: {E=9, G=6}
-G: {E=8, F=6}
---------------------------
-true
-false
-7
-8
-true
-true
-false
-
-before: 8
-after: 7
---------------------------
-A: {B=3, D=2}
-B: {A=3, C=4}
-C: {B=4, D=7}
-D: {A=2, C=7, E=10}
-E: {D=10, G=8}
-F: {G=6}
-G: {E=8, F=6}
---------------------------
---------------------------
-A: {B=3, D=2}
-B: {A=3, C=4}
-C: {B=4, D=7, F=2}
-D: {A=2, C=7, E=10}
-E: {D=10, G=8}
-F: {C=2, G=6}
-G: {E=8, F=6}
---------------------------
-before: 7
-after: 6
---------------------------
-A: {B=3, D=2}
-B: {A=3, C=4}
-C: {B=4, D=7}
-D: {A=2, C=7, E=10}
-E: {D=10, G=8}
-G: {E=8}
---------------------------
-*/
