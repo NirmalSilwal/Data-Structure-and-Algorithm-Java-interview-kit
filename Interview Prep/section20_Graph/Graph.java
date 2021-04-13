@@ -250,4 +250,196 @@ public class Graph {
 		return false;
 	}
 
+	public void breadthFirstTraversal() {
+
+		HashMap<String, Boolean> processed = new HashMap<>();
+
+		// use addLast() and removeFirst() of LinkedList - O(1) Time operations
+		LinkedList<Pair> queue = new LinkedList<>(); // Queue using LinkedList
+
+		ArrayList<String> key = new ArrayList<>(this.vertices.keySet());
+
+		// looping all vertices/nodes/keys
+		for (String node : key) {
+
+			// if graph is disconnected, handle that case
+			// runs for all components of the Graph
+			if (processed.containsKey(node)) {
+				continue;
+			}
+			// create a new Pair
+			Pair srcPair = new Pair();
+			srcPair.vname = node;
+			srcPair.pathSoFar = node;
+
+			// put the new pair in queue
+			queue.addLast(srcPair);
+
+			// while queue is not empty keep on doing the work
+			while (!queue.isEmpty()) {
+
+				// remove a pair from the queue
+				Pair removePair = queue.removeFirst();
+
+				// check if that vertex is already processed
+				if (processed.containsKey(removePair.vname)) {
+					continue;
+				}
+
+				processed.put(removePair.vname, true);
+
+				System.out.println(removePair.vname + " via " + removePair.pathSoFar);
+
+				// devote work to neighbors
+
+				Vertex removePairVertex = this.vertices.get(removePair.vname); // address
+				// all neighbors of removedPair vertex
+				ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
+
+				// loop on neighbors
+				for (String nbr : removePairNbrs) {
+
+					// process only unprocessed neighbors
+					if (!processed.containsKey(nbr)) {
+
+						// make a new pair of neighbor & put it in Queue
+						Pair newPair = new Pair();
+						newPair.vname = nbr;
+						newPair.pathSoFar = removePair.pathSoFar + nbr;
+
+						queue.addLast(newPair);
+					}
+				}
+			}
+		}
+	}
+
+	public void depthFirstTraversal() {
+
+		HashMap<String, Boolean> processed = new HashMap<>();
+
+		// use addFirst() and removeFirst() of LinkedList - O(1) Time operations
+		LinkedList<Pair> stack = new LinkedList<>(); // Queue using LinkedList
+
+		ArrayList<String> key = new ArrayList<>(this.vertices.keySet());
+
+		// looping all vertices/nodes/keys
+		for (String node : key) {
+
+			// if graph is disconnected, handle that case
+			// runs for all components of the Graph
+			if (processed.containsKey(node)) {
+				continue;
+			}
+			// create a new Pair
+			Pair srcPair = new Pair();
+			srcPair.vname = node;
+			srcPair.pathSoFar = node;
+
+			// put the new pair in queue
+			stack.addFirst(srcPair);
+
+			// while queue is not empty keep on doing the work
+			while (!stack.isEmpty()) {
+
+				// remove a pair from the queue
+				Pair removePair = stack.removeFirst();
+
+				// check if that vertex is already processed
+				if (processed.containsKey(removePair.vname)) {
+					continue;
+				}
+
+				processed.put(removePair.vname, true);
+
+				System.out.println(removePair.vname + " via " + removePair.pathSoFar);
+
+				// devote work to neighbors
+
+				Vertex removePairVertex = this.vertices.get(removePair.vname); // address
+				// all neighbors of removedPair vertex
+				ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
+
+				// loop on neighbors
+				for (String nbr : removePairNbrs) {
+
+					// process only unprocessed neighbors
+					if (!processed.containsKey(nbr)) {
+
+						// make a new pair of neighbor & put it in Queue
+						Pair newPair = new Pair();
+						newPair.vname = nbr;
+						newPair.pathSoFar = removePair.pathSoFar + nbr;
+
+						stack.addFirst(newPair);
+					}
+				}
+			}
+		}
+	}
+
+	public boolean isCyclic() {
+
+		HashMap<String, Boolean> processed = new HashMap<>();
+
+		// use addLast() and removeFirst() of LinkedList - O(1) Time operations
+		LinkedList<Pair> queue = new LinkedList<>(); // Queue using LinkedList
+
+		ArrayList<String> key = new ArrayList<>(this.vertices.keySet());
+
+		// looping all vertices/nodes/keys
+		for (String node : key) {
+
+			// if graph is disconnected, handle that case
+			// runs for all components of the Graph
+			if (processed.containsKey(node)) {
+				continue;
+			}
+			// create a new Pair
+			Pair srcPair = new Pair();
+			srcPair.vname = node;
+			srcPair.pathSoFar = node;
+
+			// put the new pair in queue
+			queue.addLast(srcPair);
+
+			// while queue is not empty keep on doing the work
+			while (!queue.isEmpty()) {
+
+				// remove a pair from the queue
+				Pair removePair = queue.removeFirst();
+
+				// check if that vertex is already processed, if so then cycle
+				// is present
+				if (processed.containsKey(removePair.vname)) {
+					return true;
+				}
+
+				processed.put(removePair.vname, true);
+
+				// devote work to neighbors
+
+				Vertex removePairVertex = this.vertices.get(removePair.vname); // address
+				// all neighbors of removedPair vertex
+				ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
+
+				// loop on neighbors
+				for (String nbr : removePairNbrs) {
+
+					// process only unprocessed neighbors
+					if (!processed.containsKey(nbr)) {
+
+						// make a new pair of neighbor & put it in Queue
+						Pair newPair = new Pair();
+						newPair.vname = nbr;
+						newPair.pathSoFar = removePair.pathSoFar + nbr;
+
+						queue.addLast(newPair);
+					}
+				}
+			}
+		}
+		return false;
+	}
+
 }
