@@ -442,4 +442,156 @@ public class Graph {
 		return false;
 	}
 
+	public boolean isConnected() {
+
+		int flag = 0; // to count no. of components in Graph
+
+		HashMap<String, Boolean> processed = new HashMap<>();
+
+		// use addLast() and removeFirst() of LinkedList - O(1) Time operations
+		LinkedList<Pair> queue = new LinkedList<>(); // Queue using LinkedList
+
+		ArrayList<String> key = new ArrayList<>(this.vertices.keySet());
+
+		// looping all vertices/nodes/keys
+		for (String node : key) {
+
+			// if graph is disconnected, handle that case
+			// runs for all components of the Graph
+			if (processed.containsKey(node)) {
+				continue;
+			}
+
+			flag++;
+
+			// create a new Pair
+			Pair srcPair = new Pair();
+			srcPair.vname = node;
+			srcPair.pathSoFar = node;
+
+			// put the new pair in queue
+			queue.addLast(srcPair);
+
+			// while queue is not empty keep on doing the work
+			while (!queue.isEmpty()) {
+
+				// remove a pair from the queue
+				Pair removePair = queue.removeFirst();
+
+				// check if that vertex is already processed
+				if (processed.containsKey(removePair.vname)) {
+					continue;
+				}
+
+				processed.put(removePair.vname, true);
+
+				// devote work to neighbors
+
+				Vertex removePairVertex = this.vertices.get(removePair.vname); // address
+				// all neighbors of removedPair vertex
+				ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
+
+				// loop on neighbors
+				for (String nbr : removePairNbrs) {
+
+					// process only unprocessed neighbors
+					if (!processed.containsKey(nbr)) {
+
+						// make a new pair of neighbor & put it in Queue
+						Pair newPair = new Pair();
+						newPair.vname = nbr;
+						newPair.pathSoFar = removePair.pathSoFar + nbr;
+
+						queue.addLast(newPair);
+					}
+				}
+			}
+		}
+
+		// flag == 1 denotes, Graph has only one component
+		if (flag >= 2) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	// Tree is an acyclic connected graph
+
+	public boolean isTree2() {
+
+		int flag = 0; // to check if Graph is connected or not
+
+		HashMap<String, Boolean> processed = new HashMap<>();
+
+		// use addLast() and removeFirst() of LinkedList - O(1) Time operations
+		LinkedList<Pair> queue = new LinkedList<>(); // Queue using LinkedList
+
+		ArrayList<String> key = new ArrayList<>(this.vertices.keySet());
+
+		// looping all vertices/nodes/keys
+		for (String node : key) {
+
+			// if graph is disconnected, handle that case
+			// runs for all components of the Graph
+			if (processed.containsKey(node)) {
+				continue;
+			}
+
+			flag++;
+
+			// create a new Pair
+			Pair srcPair = new Pair();
+			srcPair.vname = node;
+			srcPair.pathSoFar = node;
+
+			// put the new pair in queue
+			queue.addLast(srcPair);
+
+			// while queue is not empty keep on doing the work
+			while (!queue.isEmpty()) {
+
+				// remove a pair from the queue
+				Pair removePair = queue.removeFirst();
+
+				// check if that vertex is already processed, if so then cycle
+				// is present, for tree, it should be acyclic
+				if (processed.containsKey(removePair.vname)) {
+					return false;
+				}
+
+				processed.put(removePair.vname, true);
+
+				// devote work to neighbors
+
+				Vertex removePairVertex = this.vertices.get(removePair.vname); // address
+				// all neighbors of removedPair vertex
+				ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
+
+				// loop on neighbors
+				for (String nbr : removePairNbrs) {
+
+					// process only unprocessed neighbors
+					if (!processed.containsKey(nbr)) {
+
+						// make a new pair of neighbor & put it in Queue
+						Pair newPair = new Pair();
+						newPair.vname = nbr;
+						newPair.pathSoFar = removePair.pathSoFar + nbr;
+
+						queue.addLast(newPair);
+					}
+				}
+			}
+		}
+		if (flag >= 2) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	public boolean isTree() {
+		return !isCyclic() && isConnected();
+	}
 }
