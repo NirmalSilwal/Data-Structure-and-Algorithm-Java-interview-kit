@@ -2,6 +2,7 @@ package section20_Graph;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 public class Graph {
 
@@ -120,4 +121,71 @@ public class Graph {
 		}
 		return false;
 	}
+
+	// Breadth First Search implementation
+
+	private class Pair {
+		String vname; // vertex name
+		String pathSoFar;
+	}
+
+	public boolean bfs(String src, String dest) {
+
+		HashMap<String, Boolean> processed = new HashMap<>();
+
+		// use addLast() and removeFirst() of LinkedList - O(1) Time operations
+		LinkedList<Pair> queue = new LinkedList<>(); // Queue using LinkedList
+
+		// create a new Pair
+		Pair srcPair = new Pair();
+		srcPair.vname = src;
+		srcPair.pathSoFar = src;
+
+		// put the new pair in queue
+		queue.addLast(srcPair);
+
+		// while queue is not empty keep on doing the work
+		while (!queue.isEmpty()) {
+
+			// remove a pair from the queue
+			Pair removePair = queue.removeFirst();
+
+			// check if that vertex is already processed
+			if (processed.containsKey(removePair.vname)) {
+				continue;
+			}
+			
+			processed.put(removePair.vname, true);
+
+			// check direct edge
+			if (this.containsEdge(removePair.vname, dest)) {
+				System.out.println(removePair.pathSoFar + dest);
+				return true;
+			}
+
+			// devote work to neighbors
+
+			Vertex removePairVertex = this.vertices.get(removePair.vname);
+			// all neighbors of removedPair vertex
+			ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
+
+			// loop on neighbors
+			for (String nbr : removePairNbrs) {
+
+				// process only unprocessed neighbors
+				if (!processed.containsKey(nbr)) {
+
+					// make a new pair of neighbor & put it in Queue
+					Pair newPair = new Pair();
+					newPair.vname = nbr;
+					newPair.pathSoFar = removePair.pathSoFar + nbr;
+
+					queue.addLast(newPair);
+				}
+			}
+		}
+
+		return false;
+	}
+
 }
