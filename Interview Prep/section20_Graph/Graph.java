@@ -154,7 +154,7 @@ public class Graph {
 			if (processed.containsKey(removePair.vname)) {
 				continue;
 			}
-			
+
 			processed.put(removePair.vname, true);
 
 			// check direct edge
@@ -165,7 +165,7 @@ public class Graph {
 
 			// devote work to neighbors
 
-			Vertex removePairVertex = this.vertices.get(removePair.vname);
+			Vertex removePairVertex = this.vertices.get(removePair.vname); // address
 			// all neighbors of removedPair vertex
 			ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
 
@@ -181,6 +181,68 @@ public class Graph {
 					newPair.pathSoFar = removePair.pathSoFar + nbr;
 
 					queue.addLast(newPair);
+				}
+			}
+		}
+
+		return false;
+	}
+
+	// Depth First Search implementation
+	// it first explores all neighbors & then only it's siblings
+
+	public boolean dfs(String src, String dest) {
+
+		HashMap<String, Boolean> processed = new HashMap<>();
+
+		// use addLast() and removeFirst() of LinkedList - O(1) Time operations
+		LinkedList<Pair> stack = new LinkedList<>(); // Queue using LinkedList
+
+		// create a new Pair
+		Pair srcPair = new Pair();
+		srcPair.vname = src;
+		srcPair.pathSoFar = src;
+
+		// put the new pair in queue
+		stack.addFirst(srcPair);
+
+		// while queue is not empty keep on doing the work
+		while (!stack.isEmpty()) {
+
+			// remove a pair from the queue
+			Pair removePair = stack.removeFirst();
+
+			// check if that vertex is already processed
+			if (processed.containsKey(removePair.vname)) {
+				continue;
+			}
+
+			processed.put(removePair.vname, true);
+
+			// check direct edge
+			if (this.containsEdge(removePair.vname, dest)) {
+				System.out.println(removePair.pathSoFar + dest);
+				return true;
+			}
+
+			// devote work to neighbors
+
+			Vertex removePairVertex = this.vertices.get(removePair.vname); // address
+			// all neighbors of removedPair vertex
+			ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
+
+			// loop on neighbors
+			for (String nbr : removePairNbrs) {
+
+				// process only unprocessed neighbors
+				if (!processed.containsKey(nbr)) {
+
+					// make a new pair of neighbor & put it in Queue
+					Pair newPair = new Pair();
+					newPair.vname = nbr;
+					newPair.pathSoFar = removePair.pathSoFar + nbr;
+
+					stack.addFirst(newPair);
 				}
 			}
 		}
