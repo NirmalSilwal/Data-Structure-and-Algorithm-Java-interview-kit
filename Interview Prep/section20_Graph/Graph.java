@@ -594,4 +594,66 @@ public class Graph {
 	public boolean isTree() {
 		return !isCyclic() && isConnected();
 	}
+
+	public ArrayList<ArrayList<String>> getConnectedComponents() {
+
+		HashMap<String, Boolean> processed = new HashMap<>();
+
+		LinkedList<Pair> queue = new LinkedList<>(); // Queue using LinkedList
+
+		ArrayList<String> key = new ArrayList<>(this.vertices.keySet());
+
+		// to store result
+		ArrayList<ArrayList<String>> connComponentsResult = new ArrayList<>();
+
+		for (String node : key) {
+
+			// runs for all components of the Graph
+			if (processed.containsKey(node)) {
+				continue;
+			}
+			// new component started
+			ArrayList<String> subAns = new ArrayList<>();
+
+			Pair srcPair = new Pair();
+			srcPair.vname = node;
+			srcPair.pathSoFar = node;
+
+			queue.addLast(srcPair);
+
+			while (!queue.isEmpty()) {
+
+				Pair removePair = queue.removeFirst();
+
+				if (processed.containsKey(removePair.vname)) {
+					continue;
+				}
+
+				// add vertex of current components in ArrayList
+				subAns.add(removePair.vname);
+
+				processed.put(removePair.vname, true);
+
+				// devote work to neighbors
+				Vertex removePairVertex = this.vertices.get(removePair.vname); // address
+				ArrayList<String> removePairNbrs = new ArrayList<>(removePairVertex.nbrs.keySet());
+
+				for (String nbr : removePairNbrs) {
+
+					if (!processed.containsKey(nbr)) {
+
+						Pair newPair = new Pair();
+						newPair.vname = nbr;
+						newPair.pathSoFar = removePair.pathSoFar + nbr;
+
+						queue.addLast(newPair);
+					}
+				}
+			}
+			// store result of current components
+			connComponentsResult.add(subAns);
+		}
+		return connComponentsResult;
+	}
+
 }
