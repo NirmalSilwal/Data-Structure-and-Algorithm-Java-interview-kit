@@ -1,5 +1,6 @@
 package section20_Graph;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GraphClient {
@@ -111,11 +112,42 @@ public class GraphClient {
 		// graph.depthFirstTraversal();
 
 		/* test 8 */
-		System.out.println("cyclic: " + graph.isCyclic()); // true
-		graph.removeEdge("C", "D");
-		System.out.println("cyclic: " + graph.isCyclic()); // true
-		graph.removeEdge("F", "G");
-		System.out.println("cyclic: " + graph.isCyclic()); // false
 
+		// System.out.println("cyclic: " + graph.isCyclic()); // true
+		// graph.removeEdge("C", "D");
+		// System.out.println("cyclic: " + graph.isCyclic()); // true
+		// graph.removeEdge("F", "G");
+		// System.out.println("cyclic: " + graph.isCyclic()); // false
+
+		/* test 9 */
+
+		// System.out.println("is connected Graph: " + graph.isConnected()); //
+		// true
+		// System.out.println("removing Edge DE");
+		// graph.removeEdge("D", "E");
+		// System.out.println("is connected Graph: " + graph.isConnected()); //
+		// false
+
+		/* test 10 */
+
+		// System.out.println("is Tree: " + graph.isTree()); // false
+		// graph.removeEdge("C", "D");
+		// graph.removeEdge("F", "G");
+		// System.out.println("is Tree: " + graph.isTree()); // true
+
+		/* test 11 */
+
+		ArrayList<ArrayList<String>> cc = graph.getConnectedComponents();
+		System.out.println(cc); // [[A, B, D, C, E, F, G]]
+		
+		graph.removeEdge("D", "E");
+		ArrayList<ArrayList<String>> ccRemovedEdge = graph.getConnectedComponents();
+		System.out.println(ccRemovedEdge); // [[A, B, D, C], [E, F, G]]
+		
+		graph.addVertex("H");
+		ArrayList<ArrayList<String>> ccAddedVtx = graph.getConnectedComponents();
+		System.out.println(ccAddedVtx); // [[A, B, D, C], [E, F, G], [H]]
+
+		
 	}
 }
