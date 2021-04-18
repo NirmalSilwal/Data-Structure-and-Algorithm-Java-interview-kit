@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import section18_Tries.HeapGeneric; // to implement Prim's algorithm
+
 public class Graph {
 
 	private class Vertex {
@@ -656,4 +658,84 @@ public class Graph {
 		return connComponentsResult;
 	}
 
+	// Prim's Algorithm implementation
+
+	private class PrimsPair implements Comparable<PrimsPair> {
+		String vname; // vertex name
+		String acquiringVname; // from which vertex we come to this vertex
+		int cost;
+
+		/*
+		 * @see java.lang.Comparable#compareTo(java.lang.Object)
+		 */
+		@Override
+		public int compareTo(PrimsPair other) {
+			return other.cost - this.cost;
+		}
+	}
+
+	// returns MST
+	public Graph primsAlgorithm() throws Exception {
+
+		Graph mst = new Graph();
+
+		HashMap<String, PrimsPair> map = new HashMap<>();
+
+		HeapGeneric<PrimsPair> heap = new HeapGeneric<>(); // min heap
+
+		// make a pair and put in heap and hashmap
+		for (String key : vertices.keySet()) {
+
+			PrimsPair newPair = new PrimsPair();
+
+			newPair.vname = key;
+			newPair.acquiringVname = null;
+			newPair.cost = Integer.MAX_VALUE;
+
+			heap.add(newPair);
+			map.put(key, newPair);
+		}
+
+		// till the heap is not empty, keep on removing the pairs
+		while (!heap.isEmpty()) {
+
+			// remove a Pair
+			PrimsPair removedPair = heap.remove();
+			map.remove(removedPair.vname);
+
+			// add in MST
+			if (removedPair.acquiringVname == null) {
+				mst.addVertex(removedPair.vname);
+			} else {
+				mst.addVertex(removedPair.vname);
+				mst.addEdge(removedPair.vname, removedPair.acquiringVname, removedPair.cost);
+			}
+
+			// do work for neighbors
+			for (String nbr : vertices.get(removedPair.vname).nbrs.keySet()) {
+
+				// work for neighbors which are in heap
+				if (map.containsKey(nbr)) {
+
+					// get the old cost and new cost
+					int oldCost = map.get(nbr).cost;
+					int newCost = vertices.get(removedPair.vname).nbrs.get(nbr);
+
+					// update the pair only when new cost is less than old cost
+					if (newCost < oldCost) {
+
+						PrimsPair getPair = map.get(nbr);
+						getPair.acquiringVname = removedPair.vname;
+						getPair.cost = newCost;
+
+						// after changing cost, priority of Pair might change in
+						// Heap so updating in heap position for that Pair
+						heap.updatePriority(getPair);
+					}
+				}
+			}
+		}
+
+		return mst;
+	}
 }
