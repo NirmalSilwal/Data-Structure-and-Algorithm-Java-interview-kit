@@ -7,7 +7,7 @@ public class HeapGeneric<T extends Comparable<T>> {
 	ArrayList<T> data;
 	boolean isMin;
 
-	HeapGeneric() {
+	public HeapGeneric() {
 		this(false);
 	}
 
