@@ -1,11 +1,16 @@
 package section18_Tries;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HeapGeneric<T extends Comparable<T>> {
 
 	ArrayList<T> data;
 	boolean isMin;
+
+	// this is used in Prim's algorithm implementation to track the order of
+	// insertion of item in Heap. Integer stores index of insertion.
+	HashMap<T, Integer> insertOrderMap = new HashMap<>();
 
 	public HeapGeneric() {
 		this(false);
@@ -34,6 +39,8 @@ public class HeapGeneric<T extends Comparable<T>> {
 
 	public void add(T item) {
 		data.add(item);
+		// store item insertion index in hashmap
+		insertOrderMap.put(item, data.size() - 1);
 		upheapify(data.size() - 1);
 	}
 
@@ -52,6 +59,10 @@ public class HeapGeneric<T extends Comparable<T>> {
 
 		data.set(i, jthVal);
 		data.set(j, ithVal);
+
+		// update: for prims' use case
+		insertOrderMap.put(ithVal, j);
+		insertOrderMap.put(jthVal, i);
 	}
 
 	public T remove() throws Exception {
@@ -64,6 +75,9 @@ public class HeapGeneric<T extends Comparable<T>> {
 		data.remove(this.size() - 1);
 
 		downheapify(0);
+
+		// update - removed from index hashmap
+		insertOrderMap.remove(removedItem);
 
 		return removedItem;
 	}
@@ -89,4 +103,13 @@ public class HeapGeneric<T extends Comparable<T>> {
 	public int isLarger(T thisRef, T otherRef) {
 		return thisRef.compareTo(otherRef);
 	}
+
+	// Prims' usecase
+	public void updatePriority(T pair) {
+		int pairIndex = insertOrderMap.get(pair);
+
+		// since new cost of Pair is less than old cost we call upheapify here
+		upheapify(pairIndex);
+	}
+
 }
