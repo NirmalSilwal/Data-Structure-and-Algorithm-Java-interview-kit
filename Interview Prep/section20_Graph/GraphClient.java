@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class GraphClient {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		Graph graph = new Graph();
 
@@ -26,7 +26,7 @@ public class GraphClient {
 		graph.addEdge("E", "G", 8);
 		graph.addEdge("F", "G", 6);
 
-		graph.dispaly();
+		// graph.dispaly();
 
 		/* test 1 */
 
@@ -137,17 +137,45 @@ public class GraphClient {
 
 		/* test 11 */
 
-		ArrayList<ArrayList<String>> cc = graph.getConnectedComponents();
-		System.out.println(cc); // [[A, B, D, C, E, F, G]]
-		
-		graph.removeEdge("D", "E");
-		ArrayList<ArrayList<String>> ccRemovedEdge = graph.getConnectedComponents();
-		System.out.println(ccRemovedEdge); // [[A, B, D, C], [E, F, G]]
-		
-		graph.addVertex("H");
-		ArrayList<ArrayList<String>> ccAddedVtx = graph.getConnectedComponents();
-		System.out.println(ccAddedVtx); // [[A, B, D, C], [E, F, G], [H]]
+		// ArrayList<ArrayList<String>> cc = graph.getConnectedComponents();
+		// System.out.println(cc); // [[A, B, D, C, E, F, G]]
+		//
+		// graph.removeEdge("D", "E");
+		// ArrayList<ArrayList<String>> ccRemovedEdge =
+		// graph.getConnectedComponents();
+		// System.out.println(ccRemovedEdge); // [[A, B, D, C], [E, F, G]]
+		//
+		// graph.addVertex("H");
+		// ArrayList<ArrayList<String>> ccAddedVtx =
+		// graph.getConnectedComponents();
+		// System.out.println(ccAddedVtx); // [[A, B, D, C], [E, F, G], [H]]
 
-		
+		/* test 12 */
+
+		System.out.println("\nTesting Prim's Algorithm");
+
+		Graph graph2 = new Graph();
+
+		graph2.addVertex("A");
+		graph2.addVertex("B");
+		graph2.addVertex("C");
+		graph2.addVertex("D");
+		graph2.addVertex("E");
+		graph2.addVertex("F");
+		graph2.addVertex("G");
+
+		graph2.addEdge("A", "B", 2);
+		graph2.addEdge("A", "D", 6);
+		graph2.addEdge("B", "C", 3);
+		graph2.addEdge("C", "D", 1);
+		graph2.addEdge("D", "E", 8);
+		graph2.addEdge("E", "F", 5);
+		graph2.addEdge("E", "G", 7);
+		graph2.addEdge("F", "G", 4);
+
+		graph2.dispaly();
+
+		graph2.primsAlgorithm().dispaly();
+
 	}
 }
