@@ -1,7 +1,7 @@
 package section20_Graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+//import java.util.ArrayList;
+//import java.util.HashMap;
 
 public class GraphClient {
 
@@ -152,7 +152,7 @@ public class GraphClient {
 
 		/* test 12 */
 
-		System.out.println("\nTesting Prim's Algorithm");
+		// System.out.println("\nTesting Prim's Algorithm");
 
 		Graph graph2 = new Graph();
 
@@ -165,17 +165,24 @@ public class GraphClient {
 		graph2.addVertex("G");
 
 		graph2.addEdge("A", "B", 2);
-		graph2.addEdge("A", "D", 6);
+		graph2.addEdge("A", "D", 10);
 		graph2.addEdge("B", "C", 3);
 		graph2.addEdge("C", "D", 1);
 		graph2.addEdge("D", "E", 8);
 		graph2.addEdge("E", "F", 5);
-		graph2.addEdge("E", "G", 7);
+		graph2.addEdge("E", "G", 6);
 		graph2.addEdge("F", "G", 4);
 
 		graph2.dispaly();
 
-		graph2.primsAlgorithm().dispaly();
+		// graph2.primsAlgorithm().dispaly();
+
+		/* test 13 */
+
+		System.out.println("\nTesting Dijkstra Algorithm...\n");
+
+		// output: {A=0, B=2, C=5, D=6, E=14, F=19, G=20}
+		System.out.println(graph2.dijkstraAlgorithm("A"));
 
 	}
 }
