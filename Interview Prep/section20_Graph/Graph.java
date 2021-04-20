@@ -738,4 +738,85 @@ public class Graph {
 
 		return mst;
 	}
+
+	private class DijkstraPair implements Comparable<DijkstraPair> {
+		String vname; // vertex name
+		String pathSoFar; // from which vertex we come to this vertex
+		int cost;
+
+		/*
+		 * @see java.lang.Comparable#compareTo(java.lang.Object)
+		 */
+		@Override
+		public int compareTo(DijkstraPair other) {
+			return other.cost - this.cost; // min-heap
+		}
+	}
+
+	// single source shortest path algorithm
+	public HashMap<String, Integer> dijkstraAlgorithm(String src) throws Exception {
+
+		HashMap<String, DijkstraPair> map = new HashMap<>();
+
+		HashMap<String, Integer> ans = new HashMap<>();
+
+		HeapGeneric<DijkstraPair> heap = new HeapGeneric<>(); // min heap
+
+		// make a pair and put in heap & hashmap
+		for (String key : vertices.keySet()) {
+
+			DijkstraPair newPair = new DijkstraPair();
+
+			newPair.vname = key;
+			newPair.pathSoFar = null;
+			newPair.cost = Integer.MAX_VALUE;
+
+			// for source vertex, path is itself & cost will be 0
+			if (key.equals(src)) {
+				newPair.pathSoFar = key;
+				newPair.cost = 0;
+			}
+
+			heap.add(newPair);
+			map.put(key, newPair);
+		}
+
+		// till the heap is not empty, keep on removing the pairs
+		while (!heap.isEmpty()) {
+
+			// remove a Pair
+			DijkstraPair removedPair = heap.remove();
+			map.remove(removedPair.vname);
+
+			// add in ans
+			ans.put(removedPair.vname, removedPair.cost);
+
+			// do work for neighbors
+			for (String nbr : vertices.get(removedPair.vname).nbrs.keySet()) {
+
+				// work for neighbors which are in heap
+				if (map.containsKey(nbr)) {
+
+					// get the old cost and new cost
+					int oldCost = map.get(nbr).cost;
+					int newCost = removedPair.cost + vertices.get(removedPair.vname).nbrs.get(nbr);
+
+					// update the pair only when new cost is less than old cost
+					if (newCost < oldCost) {
+
+						DijkstraPair getPair = map.get(nbr);
+						getPair.pathSoFar = removedPair.pathSoFar + nbr;
+						getPair.cost = newCost;
+
+						// after changing cost, priority of Pair might change in
+						// Heap so updating in heap position for that Pair
+						heap.updatePriority(getPair);
+					}
+				}
+			}
+		}
+
+		return ans;
+	}
+
 }
