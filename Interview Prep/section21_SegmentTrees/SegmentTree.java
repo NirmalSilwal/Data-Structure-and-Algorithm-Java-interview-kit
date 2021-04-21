@@ -88,4 +88,22 @@ public class SegmentTree {
 			return leftResult + rightResult;
 		}
 	}
+
+	public void update(int index, int newVal) {
+		this.root.data = this.update(this.root, index, newVal);
+	}
+
+	private int update(Node node, int index, int newVal) {
+		if (index >= node.startInterval && index <= node.endInterval) {
+			if (index == node.startInterval && index == node.endInterval) {
+				node.data = newVal;
+			} else {
+				int leftValue = this.update(node.left, index, newVal);
+				int rightValue = this.update(node.right, index, newVal);
+				node.data = leftValue + rightValue;
+			}
+		}
+
+		return node.data;
+	}
 }
