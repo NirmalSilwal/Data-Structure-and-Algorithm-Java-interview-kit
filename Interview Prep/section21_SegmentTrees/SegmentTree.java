@@ -65,4 +65,27 @@ public class SegmentTree {
 		display(node.left);
 		display(node.right);
 	}
+
+	public int query(int qsi, int qei) {
+		return this.query(this.root, qsi, qei);
+	}
+
+	// sum query, sum of certain ranges in Array
+
+	// O(logN), N is height of Segment Tree
+	private int query(Node node, int qsi, int qei) {
+		// node is completely lying inside the query, it will contribute to ans
+		if (node.startInterval >= qsi && node.endInterval <= qei) {
+			return node.data;
+		} else if (node.startInterval > qei || node.endInterval < qsi) {
+			// when node is completely outside query interval, return default
+			// value of query
+			return 0;
+		} else {
+			// overlapping case
+			int leftResult = query(node.left, qsi, qei);
+			int rightResult = query(node.right, qsi, qei);
+			return leftResult + rightResult;
+		}
+	}
 }
