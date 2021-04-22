@@ -31,3 +31,6 @@ Keep an 👁️ on it. I will be adding **Data Structures and Algorithm** implem
  - [Heap](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section17_Heap)
  - [Tries](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section18_Tries)
  - [Dynamic Programming](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section19_DynamicProgramming)
+ - [Graph](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section20_Graph)
+ - [Segment Trees](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section21_SegmentTrees)
+ - [Bit Masking](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section22_BitMasking)
