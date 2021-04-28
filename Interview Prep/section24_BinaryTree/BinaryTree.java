@@ -88,4 +88,85 @@ public class BinaryTree {
 		display(node.left);
 		display(node.right);
 	}
+
+	public int size() {
+		return size(root);
+	}
+
+	private int size(Node node) {
+		if (node == null)
+			return 0;
+
+		int lsize = size(node.left);
+		int rsize = size(node.right);
+
+		return lsize + rsize + 1;
+	}
+
+	public int max() {
+		return max(root);
+	}
+
+	/*
+	 * private int max(Node node) {
+	 * 
+	 * int totalMax = node.data;
+	 * 
+	 * if (node.left != null) { int lmax = max(node.left);
+	 * 
+	 * if (lmax > totalMax) totalMax = lmax; }
+	 * 
+	 * if (node.right != null) { int rmax = max(node.right);
+	 * 
+	 * if (rmax > totalMax) totalMax = rmax; }
+	 * 
+	 * return totalMax; }
+	 */
+
+	// clean code to find max
+	private int max(Node node) {
+		if (node == null)
+			return Integer.MIN_VALUE;
+
+		int lmax = max(node.left);
+		int rmax = max(node.right);
+
+		return Math.max(node.data, Math.max(lmax, rmax));
+	}
+
+	public boolean find(int item) {
+		return find(root, item);
+	}
+
+	private boolean find(Node node, int item) {
+		if (node == null)
+			return false;
+
+		if (node.data == item)
+			return true;
+
+		boolean lResult = find(node.left, item);
+		if (lResult)
+			return true;
+
+		boolean rResult = find(node.right, item);
+		if (rResult)
+			return true;
+
+		return false;
+	}
+
+	public int height() {
+		return height(root);
+	}
+
+	private int height(Node node) {
+		if (node == null)
+			return -1;
+
+		int lheight = height(node.left);
+		int rheight = height(node.right);
+
+		return Math.max(lheight, rheight) + 1; // self-work
+	}
 }
