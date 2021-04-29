@@ -228,7 +228,8 @@ public class BinaryTree {
 		int pairDiameter = 0;
 		int pairHeight = -1;
 	}
-
+	
+	// O(N) Time
 	public int diameter3() {
 		DiaPair ansPair = diameter3(root);
 		return ansPair.pairDiameter;
@@ -253,5 +254,68 @@ public class BinaryTree {
 		selfDiaPair.pairHeight = Math.max(leftDiaPair.pairHeight, rightDiaPair.pairHeight) + 1;
 
 		return selfDiaPair;
+	}
+
+	// O(N^2) Time
+	public boolean isBalanced() {
+		return isBalanced(root);
+	}
+
+	private boolean isBalanced(Node node) {
+
+		if (node == null) {
+			return true;
+		}
+
+		boolean leftBalanced = isBalanced(node.left);
+		boolean rightBalanced = isBalanced(node.right);
+
+		// for root node of current subtree
+		int balancingFactor = height(node.left) - height(node.right);
+
+		if (leftBalanced && rightBalanced && balancingFactor >= -1 && balancingFactor <= 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	// Efficient approach to check if binary tree is Balanced
+
+	private class BalPair {
+		boolean isBal = true;
+		int ht = -1;
+	}
+
+	public boolean isBalanced3() {
+		BalPair ans = isBalanced3(root);
+		return ans.isBal;
+	}
+
+	private BalPair isBalanced3(Node node) {
+
+		if (node == null) {
+			return new BalPair();
+		}
+
+		BalPair leftBalPair = isBalanced3(node.left);
+		BalPair rightBalPair = isBalanced3(node.right);
+
+		BalPair selfBalPair = new BalPair();
+
+		// logic from first approach
+		boolean leftBalanced = leftBalPair.isBal;
+		boolean rightBalanced = rightBalPair.isBal;
+		int balancingFactor = leftBalPair.ht - rightBalPair.ht;
+
+		if (leftBalanced && rightBalanced && balancingFactor >= -1 && balancingFactor <= 1) {
+			selfBalPair.isBal = true;
+		} else {
+			selfBalPair.isBal = false;
+		} 
+
+		selfBalPair.ht = Math.max(leftBalPair.ht, rightBalPair.ht) + 1;
+
+		return selfBalPair;
 	}
 }
