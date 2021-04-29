@@ -56,6 +56,7 @@ public class BinaryTree {
 		return newNode;
 	}
 
+	// O(N)Time
 	public void display() {
 		System.out.println("\n--------------------");
 		display(root);
@@ -89,6 +90,7 @@ public class BinaryTree {
 		display(node.right);
 	}
 
+	// O(N)Time
 	public int size() {
 		return size(root);
 	}
@@ -103,6 +105,7 @@ public class BinaryTree {
 		return lsize + rsize + 1;
 	}
 
+	// O(N)Time
 	public int max() {
 		return max(root);
 	}
@@ -134,6 +137,7 @@ public class BinaryTree {
 		return Math.max(node.data, Math.max(lmax, rmax));
 	}
 
+	// O(N)Time
 	public boolean find(int item) {
 		return find(root, item);
 	}
@@ -156,6 +160,7 @@ public class BinaryTree {
 		return false;
 	}
 
+	// O(N)Time
 	public int height() {
 		return height(root);
 	}
@@ -168,5 +173,85 @@ public class BinaryTree {
 		int rheight = height(node.right);
 
 		return Math.max(lheight, rheight) + 1; // self-work
+	}
+
+	// approach 1 - using global variable
+	private int diameterAns = Integer.MIN_VALUE;
+
+	public int diameter() {
+		diameter(root);
+		return diameterAns;
+	}
+
+	private void diameter(Node node) {
+
+		if (node == null) {
+			return;
+		}
+
+		int presentNodeRoot = height(node.left) + height(node.right) + 2;
+
+		if (presentNodeRoot > diameterAns) {
+			diameterAns = presentNodeRoot;
+		}
+
+		diameter(node.left);
+		diameter(node.right);
+	}
+
+	// approach 2
+	// O(N^2)Time
+	public int diameter2() {
+		return diameter2(root);
+	}
+
+	private int diameter2(Node node) {
+
+		if (node == null)
+			return 0;
+
+		// max distance between 2 leaf nodes might lie in left subtree,
+		// factor1: left diameter
+		int lDiameter = diameter2(node.left);
+
+		// max distance between 2 leaf nodes might lie in right subtree,
+		// factor2: right diameter
+		int rDiameter = diameter2(node.right);
+
+		// self node might be the root node of diameter, factor3: self diameter
+		int rootDiameter = height(node.left) + height(node.right) + 2;
+
+		return Math.max(rootDiameter, Math.max(lDiameter, rDiameter));
+	}
+
+	private class DiaPair {
+		int pairDiameter = 0;
+		int pairHeight = -1;
+	}
+
+	public int diameter3() {
+		DiaPair ansPair = diameter3(root);
+		return ansPair.pairDiameter;
+	}
+
+	private DiaPair diameter3(Node node) {
+
+		if (node == null) {
+			return new DiaPair();
+		}
+
+		DiaPair leftDiaPair = diameter3(node.left);
+		DiaPair rightDiaPair = diameter3(node.right);
+
+		DiaPair selfDiaPair = new DiaPair();
+
+		int lDiameter = leftDiaPair.pairDiameter;
+		int rDiameter = rightDiaPair.pairDiameter;
+		int selfDiameter = leftDiaPair.pairHeight + rightDiaPair.pairHeight + 2;
+
+		selfDiaPair.pairDiameter = Math.max(selfDiameter, Math.max(lDiameter, rDiameter));
+		selfDiaPair.pairHeight = Math.max(leftDiaPair.pairHeight, rightDiaPair.pairHeight) + 1;
+
+		return selfDiaPair;
 	}
 }
