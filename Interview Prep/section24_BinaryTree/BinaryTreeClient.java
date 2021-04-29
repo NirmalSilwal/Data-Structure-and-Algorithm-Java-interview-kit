@@ -32,6 +32,9 @@ public class BinaryTreeClient {
 		System.out.println("diameter: " + btree.diameter2());
 		System.out.println("diameter: " + btree.diameter3());
 		
-		
+		/* test input: 10 Y 20 Y 40 N N Y 50 N N Y 30 N Y 60 N N */
+		System.out.println("is Balanced: " + btree.isBalanced());
+		System.out.println("is Balanced: " + btree.isBalanced3());
+
 	}
 }
