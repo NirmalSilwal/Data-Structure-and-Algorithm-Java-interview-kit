@@ -228,8 +228,7 @@ public class BinaryTree {
 		int pairDiameter = 0;
 		int pairHeight = -1;
 	}
-	
-	// O(N) Time
+
 	public int diameter3() {
 		DiaPair ansPair = diameter3(root);
 		return ansPair.pairDiameter;
@@ -287,6 +286,7 @@ public class BinaryTree {
 		int ht = -1;
 	}
 
+	// O(N) Time
 	public boolean isBalanced3() {
 		BalPair ans = isBalanced3(root);
 		return ans.isBal;
@@ -312,10 +312,54 @@ public class BinaryTree {
 			selfBalPair.isBal = true;
 		} else {
 			selfBalPair.isBal = false;
-		} 
+		}
 
 		selfBalPair.ht = Math.max(leftBalPair.ht, rightBalPair.ht) + 1;
 
 		return selfBalPair;
+	}
+
+	// Binary Tree Traversals
+
+	public void preorder() {
+		preorder(root);
+	}
+
+	private void preorder(Node node) {
+		if (node == null)
+			return;
+
+		// NLR - Node, Left, Right
+		System.out.print(node.data + " ");
+		preorder(node.left);
+		preorder(node.right);
+	}
+
+	public void inorder() {
+		inorder(root);
+	}
+
+	private void inorder(Node node) {
+		if (node == null)
+			return;
+
+		// LNR, Left, Node, Right
+		inorder(node.left);
+		System.out.print(node.data + " ");
+		inorder(node.right);
+	}
+
+	public void postorder() {
+		postorder(root);
+	}
+
+	private void postorder(Node node) {
+		if (node == null)
+			return;
+
+		// LRN, Left, Right, Node
+		postorder(node.left);
+		postorder(node.right);
+		System.out.print(node.data + " ");
 	}
 }
