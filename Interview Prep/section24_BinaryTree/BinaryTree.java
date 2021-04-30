@@ -1,6 +1,7 @@
 package section24_BinaryTree;
 
 import java.util.Scanner;
+import java.util.Stack;
 
 public class BinaryTree {
 
@@ -361,5 +362,64 @@ public class BinaryTree {
 		postorder(node.left);
 		postorder(node.right);
 		System.out.print(node.data + " ");
+	}
+
+	// pre-order traversal using Iterative approach
+	private class Pair {
+		Node node;
+		boolean selfDone; // Node traversed
+		boolean leftDone; // Left traversed
+		boolean rightDone; // Right traversed
+	}
+
+	public void preorderIterative() {
+
+		// create a Stack
+		Stack<Pair> stack = new Stack<>();
+
+		// create starting pair
+		Pair startPair = new Pair();
+		startPair.node = root;
+
+		// put starting pair in Stack
+		stack.push(startPair);
+
+		while (!stack.isEmpty()) {
+
+			Pair topmostPair = stack.peek();
+
+			if (topmostPair.node == null) {
+				stack.pop();
+				continue;
+			}
+
+			if (topmostPair.selfDone == false) {
+				System.out.print(topmostPair.node.data + " "); // N
+				topmostPair.selfDone = true;
+
+			} else if (topmostPair.leftDone == false) {
+
+				// create a new pair
+				Pair newLPair = new Pair();
+				newLPair.node = topmostPair.node.left; // L
+
+				// if (newLPair.node != null)
+				stack.push(newLPair);
+
+				topmostPair.leftDone = true;
+
+			} else if (topmostPair.rightDone == false) {
+
+				Pair newRPair = new Pair();
+				newRPair.node = topmostPair.node.right; // R
+
+				// if (newRPair.node != null)
+				stack.push(newRPair);
+
+				topmostPair.rightDone = true;
+			} else {
+				stack.pop();
+			}
+		}
 	}
 }
