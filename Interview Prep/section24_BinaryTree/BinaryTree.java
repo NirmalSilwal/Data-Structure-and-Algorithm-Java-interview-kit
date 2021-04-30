@@ -422,4 +422,20 @@ public class BinaryTree {
 			}
 		}
 	}
+
+	public int sum() {
+		return sum(root);
+	}
+
+	private int sum(Node node) {
+
+		if (node == null) {
+			return 0;
+		}
+
+		int leftSum = sum(node.left);
+		int rightSum = sum(node.right);
+
+		return leftSum + rightSum + node.data;
+	}
 }
