@@ -438,4 +438,107 @@ public class BinaryTree {
 
 		return leftSum + rightSum + node.data;
 	}
+
+	// maximum subtree sum
+
+	// approach 1 - using global variable
+	/*
+	 * private int maxSubsumAns = Integer.MIN_VALUE;
+	 * 
+	 * public int maxSubtreeSum1() { maxSubtreeSum1(root); return maxSubsumAns;
+	 * }
+	 * 
+	 * private void maxSubtreeSum1(Node node) {
+	 * 
+	 * if (node == null) return;
+	 * 
+	 * int lsum = sum(node.left); if (lsum > maxSubsumAns) { maxSubsumAns =
+	 * lsum; } maxSubtreeSum1(node.left);
+	 * 
+	 * int rsum = sum(node.right); if (rsum > maxSubsumAns) { maxSubsumAns =
+	 * rsum; } maxSubtreeSum1(node.right);
+	 * 
+	 * int currentSubtreesum = lsum + rsum + node.data;
+	 * 
+	 * if (currentSubtreesum > maxSubsumAns) { maxSubsumAns = currentSubtreesum;
+	 * } }
+	 */
+
+	// clean code of maxSubtreeSum1()
+	private int maxSubsumAns2 = Integer.MIN_VALUE;
+
+	public int maxSubtreeSum1() {
+		maxSubtreeSum1(root);
+		return maxSubsumAns2;
+	}
+
+	private int maxSubtreeSum1(Node node) {
+
+		if (node == null)
+			return 0;
+
+		int lsum = maxSubtreeSum1(node.left);
+		int rsum = maxSubtreeSum1(node.right);
+
+		int nodeans = lsum + rsum + node.data;
+
+		if (nodeans > maxSubsumAns2) {
+			maxSubsumAns2 = nodeans;
+		}
+
+		return nodeans;
+	}
+
+	// O(N^2) Time
+	public int maxSubtreeSum2() {
+		return maxSubtreeSum2(root);
+	}
+
+	// recursion returns maximum subtree sum
+	private int maxSubtreeSum2(Node node) {
+
+		if (node == null)
+			return Integer.MIN_VALUE; // not zero, because node data can be
+										// negative & we are finding Max value
+
+		int lMaxSubtreeSum = maxSubtreeSum2(node.left);
+		int rMaxSubtreeSum = maxSubtreeSum2(node.right);
+
+		// current node sum + entire left subtree sum + entire right subtree sum
+		// int selfSum = node.data + sum(node.left) + sum(node.right);
+		int selfSum = sum(node);
+
+		int ans = Math.max(selfSum, Math.max(lMaxSubtreeSum, rMaxSubtreeSum));
+
+		return ans;
+	}
+
+	// approach 3
+
+	private class MaxSubtreeSumPair {
+		int entireSum = 0;
+		int maxSubtreeSum = Integer.MIN_VALUE;
+	}
+
+	// O(N) Time
+	public int maxSubtreeSum3() {
+		return maxSubtreeSum3(root).maxSubtreeSum;
+	}
+
+	private MaxSubtreeSumPair maxSubtreeSum3(Node node) {
+
+		if (node == null) {
+			return new MaxSubtreeSumPair();
+		}
+
+		MaxSubtreeSumPair lp = maxSubtreeSum3(node.left);
+		MaxSubtreeSumPair rp = maxSubtreeSum3(node.right);
+
+		MaxSubtreeSumPair selfpair = new MaxSubtreeSumPair();
+
+		selfpair.entireSum = lp.entireSum + rp.entireSum + node.data;
+		selfpair.maxSubtreeSum = Math.max(selfpair.entireSum, Math.max(lp.maxSubtreeSum, rp.maxSubtreeSum));
+
+		return selfpair;
+	}
 }
