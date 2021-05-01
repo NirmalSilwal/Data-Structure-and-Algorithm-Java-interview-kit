@@ -579,4 +579,42 @@ public class BinaryTree {
 
 		return newNode;
 	}
+
+	public boolean flipEquivalent(BinaryTree other) {
+		return flipEquivalent(this.root, other.root);
+	}
+
+	private boolean flipEquivalent(Node node1, Node node2) {
+
+		// if both nodes are null, they are flip equivalent
+		if (node1 == null && node2 == null) {
+			return true;
+		}
+		// if either of node is null, they are not flip equivalent
+		if (node1 == null || node2 == null) {
+			return false;
+		}
+
+		if (node1.data != node2.data) {
+			return false;
+		}
+		// case 1 - node is not flipped
+
+		// left subtree of node1 & left subtree of node2
+		boolean leftleft = flipEquivalent(node1.left, node2.left);
+		// right subtree of node1 & right subtree of node2
+		boolean rightright = flipEquivalent(node1.right, node2.right);
+
+		if (leftleft && rightright)
+			return true;
+		
+		// case 2 - node is flipped
+
+		// left subtree of node1 & right subtree of node2
+		boolean leftright = flipEquivalent(node1.left, node2.right);
+		// right subtree of node1 & left subtree of node2
+		boolean rightleft = flipEquivalent(node1.right, node2.left);
+
+		return (leftleft && rightright) || (leftright && rightleft);
+	}
 }
