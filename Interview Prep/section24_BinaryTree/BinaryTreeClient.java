@@ -49,60 +49,31 @@ public class BinaryTreeClient {
 
 		System.out.println("\npreorder iterative");
 		btree.preorderIterative();
+
+		/* test input: 100 Y 20 Y -40 N N Y 50 N N Y -30 N Y 70 N N */
+		System.out.println("\n\nSum: " + btree.sum());
+
+		/*
+		 * test input: 10 Y 20 Y 40 Y 2 N N Y 3 N N Y -60 N N Y -30 Y 50 Y 60 Y
+		 * 80 N N N Y 70 N N Y -100 N N
+		 */
+
+		System.out.println("\nmax subtree sum: " + btree.maxSubtreeSum1());
+		System.out.println("\nmax subtree sum: " + btree.maxSubtreeSum2());
+		System.out.println("\nmax subtree sum: " + btree.maxSubtreeSum3());
+
+		System.out.println("\nTree construction using preorder & inorder traversal");
+
+		int[] preorderTraversal = { 10, 20, 40, 30, 50, 60, 70 };
+		int[] inorderTraversal = { 40, 20, 10, 50, 30, 60, 70 };
+
+		BinaryTree btree2 = new BinaryTree(inorderTraversal, preorderTraversal);
+
+		btree2.display();
+
+		int[] in = { 40, 20, 50, 10, 30, 70 };
+		int[] pre = { 10, 20, 40, 50, 30, 70 };
+		BinaryTree btree3 = new BinaryTree(in, pre);
+		btree3.display();
 	}
 }
-
-
-/* output:
-Enter the data for root node: 
-10 Y 20 Y 40 N N Y 50 N N Y 30 N Y 70 N N
-Do you have left child of 10 ?, press Y/N
-Enter the data for left child of 10
-Do you have left child of 20 ?, press Y/N
-Enter the data for left child of 20
-Do you have left child of 40 ?, press Y/N
-Do you have right child of 40 ?, press Y/N
-Do you have right child of 20 ?, press Y/N
-Enter the data for right child of 20
-Do you have left child of 50 ?, press Y/N
-Do you have right child of 50 ?, press Y/N
-Do you have right child of 10 ?, press Y/N
-Enter the data for right child of 10
-Do you have left child of 30 ?, press Y/N
-Do you have right child of 30 ?, press Y/N
-Enter the data for right child of 30
-Do you have left child of 70 ?, press Y/N
-Do you have right child of 70 ?, press Y/N
-
---------------------
-20 => 10 <= 30
-40 => 20 <= 50
-.  => 40 <= .
-.  => 50 <= .
-.  => 30 <= 70
-.  => 70 <= .
---------------------
-size: 6
-max: 70
-found 10: true
-found 50: true
-found 60: true
-found 40: true
-found 500: false
-found -1: false
-height: 2
-diameter: 4
-diameter: 4
-diameter: 4
-is Balanced: true
-is Balanced: true
-
-pre-order traversal
-10 20 40 50 30 70 
-in-order traverasl
-40 20 50 10 30 70 
-post-order traversal
-40 50 20 70 30 10 
-preorder iterative
-10 20 40 50 30 70 
-*/
