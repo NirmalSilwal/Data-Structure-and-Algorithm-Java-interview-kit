@@ -19,6 +19,16 @@ public class BinaryTree {
 		this.root = takeInput(null, false);
 	}
 
+	// parameterized constructor for tree construction using preorder and
+	// inorder traversal
+	public BinaryTree(int[] inTraverse, int[] preTraverse) {
+
+		int inStartIdx = 0, inEndIdx = inTraverse.length - 1;
+		int preStartIdx = 0, preEndIdx = preTraverse.length - 1;
+
+		this.root = construct(preTraverse, preStartIdx, preEndIdx, inTraverse, inStartIdx, inEndIdx);
+	}
+
 	private Node takeInput(Node parent, boolean isLeftChild) {
 
 		// prompt
@@ -540,5 +550,33 @@ public class BinaryTree {
 		selfpair.maxSubtreeSum = Math.max(selfpair.entireSum, Math.max(lp.maxSubtreeSum, rp.maxSubtreeSum));
 
 		return selfpair;
+	}
+
+	public Node construct(int[] pre, int plow, int phigh, int[] in, int ilow, int ihigh) {
+
+		if (plow > phigh || ilow > ihigh) {
+			return null;
+		}
+
+		// create a new node with plow
+		Node newNode = new Node();
+		newNode.data = pre[plow]; // root node initially
+
+		// search for pre[plow] in inorder array
+		int searchIdx = -1;
+		int numElements = 0;
+		for (int i = ilow; i <= ihigh; i++) {
+			if (pre[plow] == in[i]) {
+				searchIdx = i;
+				break;
+			}
+			numElements++;
+		}
+
+		// left and right child call
+		newNode.left = construct(pre, plow + 1, plow + numElements, in, ilow, searchIdx - 1);
+		newNode.right = construct(pre, plow + numElements + 1, phigh, in, searchIdx + 1, ihigh);
+
+		return newNode;
 	}
 }
