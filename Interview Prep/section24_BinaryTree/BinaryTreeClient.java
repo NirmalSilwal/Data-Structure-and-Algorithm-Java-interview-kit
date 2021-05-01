@@ -75,5 +75,16 @@ public class BinaryTreeClient {
 		int[] pre = { 10, 20, 40, 50, 30, 70 };
 		BinaryTree btree3 = new BinaryTree(in, pre);
 		btree3.display();
+
+		System.out.println("\n\nFlip Equivalent binary tree");
+		/* test input: 1 Y 2 Y 4 N N Y 5 Y 7 N N Y 8 N N Y 3 Y 6 N N N */
+		BinaryTree bt1 = new BinaryTree();
+		bt1.display();
+
+		/* test input: 1 Y 3 N Y 6 N N Y 2 Y 4 N N Y 5 Y 8 N N Y 7 N N */
+		BinaryTree bt2 = new BinaryTree();
+		bt2.display();
+
+		System.out.println("is flip equivalence: " + bt1.flipEquivalent(bt2));
 	}
 }
