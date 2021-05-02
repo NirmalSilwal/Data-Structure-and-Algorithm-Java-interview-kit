@@ -15,7 +15,8 @@ Keep an 👁️ on it. I will be adding **Data Structures and Algorithm** implem
 
 ## [Interview Prep](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep)
 
-This directory has the solution to most of the famous coding interivew questions divided by topics from increasing order of difficulty and topics. **If you are time bounded, you can start practicing problems from this section directly or else from below section.** Find the practice questions of this directory [here](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit#question-set-from-interview-prep-directory).
+This directory has the solution to most of the famous coding interivew questions divided by topics from increasing order of difficulty and topics. **If you are time bounded, you can start practicing problems from this section directly or else from below section.** 
+- [ ] [All practice problems in this directory here](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit#question-set-from-interview-prep-directory).
 
 > **_NOTE:_** *This is the premium conent.*
 
@@ -139,5 +140,31 @@ Questions by difficulty order
 
 SN. | Topics, DSA | Practice Questions
 ------------ | ------------- | -------------
-1 | Basic Programming | various Pattern printing, Mathematical problems, Fibonacci Series, GCD, Prime number, Reverse number, Sum N Natural numbers, else if demo
-2 | Data types | Temperature table, upper or lower case check 
+1 | [Basic Programming](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section1_basic) | various Pattern printing, Mathematical problems, Fibonacci Series, GCD, Prime number, Reverse number, Sum N Natural numbers, else if demo
+2 | [Data types](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section2_dataTypes) | Temperature table, upper or lower case check
+3 | [Functions, 1D Array, Number System, Searching, Sorting](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section3_Function_1DArray) | Linear Search, Binary Search, Insertion Sort, Selection Sort, Bubble Sort, Base conversion problems, Upper & Lower index of search element, Maximum value in Array
+4 | [2D Array](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section4_2DArray) | 2D Array demo, Wave pattern printing, Spiral wave print
+5 | [Strings & StringBuilder](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section5_Strings) | String demo, StringBuilder demo, Print all Substrings, Print Characters in String
+6 | [Recursion](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section6_Recursion) | Bubble Sort, Factorial, First & Last Index in Array, isSorted Array, Nth Fibonacci, Pattern printing, Power of N, Search all indices of item, Print Decreasing, Print Increasing, Print Decreasing Increasing Skip, Print Decreasing Increasing
+7 | [Get Recursion](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section7_GetRecursion) | Print all Permutations of String, Maze Path, Maze Path Diagonal, Board Path, Get all Subsequences of String
+9 | [Print Recursion](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section8_PrintRecursion) | Print Board Path, Print Maze Path, Print Maze Path Diagonal, Print N Queens, Print Subsequences, Count Board Path, Count Maze Path, Count Maze Path Diagonal, Count N Queens
+10 | [Time & Space Complexity](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section9_Time_Space_Complexity) | Merge Sort, Quick Sort, Power N optimal, Sieve of Eratosthenes, Dutch National Flag problem
+11 | [Stacks](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section10_Stacks) | implement Stack using Array, Reverse Stack, Next greater element in Array
+12 | [Stack & Queue](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section11_Queue) | Implement Queue using Array, Stack & LinkedList, Reverse Queue, Stack using Queue Push & Pop Efficient, Queue using Stack Enqueue & Dequeue Efficient, Maximum in each Subarray of Window K, First Non-repeating Character, First Negative number in every subarray of size K
+13 | [Backtracking](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section12_Backtracking) | N Queens, N Knights, N Queen Generic, Queen Permutations, Queen Combinations, Queen Combination with Killing, Coin Change Permutations, Coin Change Combinations, Blocked Maze Path
+14 | [LinkedList](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section13_LinkedList) | implement LinkedList, Stack using LL, Queue using LL
+15 | [Tree](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section14_Tree) | implement Binary Tree, Generic Tree, Binary Search Tree
+16 | [Interface & Generics](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section15_InterfaceAndGenerics) | Generics demo, Dynamic Stack, Bubble Sort Generic, Comparator demo
+17 | [HashMap](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section16_Hashmap) | implement HashMap from scratch, Collections, Subarray sum zero problem, Array Intersection, Generic LinkedList, Maximum Frequency Character
+18 | [Heap](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section17_Heap) | implement Heap from scratch with various operations
+19 | [Tries](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section18_Tries) | implement Trie, Heap Generic, Huffman Encoder for Space optimization
+20 | [Dynamic Programming](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section19_DynamicProgramming) | Board Path, Count Board Path, Count Binary Strings, Dungeon Game, Edit Distance problem, Fibonacci, LCS, K Ordered LCS, Knapsack problem, LCS of 3 Strings, Longest Increasing Subsequence, Longest Palindromic Subsequence, Matrix Chain Multiplication, Maze Path, Maze Path Diagonal, Mixture Colors, Palindrome Partitioning, Unique BST Counts, Wildcard Pattern Matching, Wine Problem (4 approaches to most of the problems)
+21 | [Graph](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section20_Graph) | implement Graph from scratch, all Graph realted algorithms & problems
+22 | [Segment Tree](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section21_SegmentTrees) | implement Segment Tree
+23 | [Bit Masking/Bit Magic](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section22_BitMasking) | Add One, check Power of 2, check Even Odd, Extract Bit, Missing 2 Numbers, ith Magic Number, Pascal sum, Reset Bit, Rightmost Set Bit, Set ith Bit, Unique Element
+24 | [Generic Tree](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section23_GenericTree) | implement Generic Tree from scratch, various problems on it
+25 | [Binary Tree](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section24_BinaryTree) | implement Binary Tree from scratch, various problems on it
+26 | [Java Collections](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/collections) | Maps, Set, Vector, Queue Interface demos
+27 | [OOPS](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/OOPS) | OOPS demo
+
+
