@@ -15,7 +15,7 @@ Keep an 👁️ on it. I will be adding **Data Structures and Algorithm** implem
 
 ## [Interview Prep](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep)
 
-This directory has the solution to most of the famous coding interivew questions divided by topics from increasing order of difficulty and topics. **If you are time bounded, you can start practicing problems from this section directly or else from below section.**
+This directory has the solution to most of the famous coding interivew questions divided by topics from increasing order of difficulty and topics. **If you are time bounded, you can start practicing problems from this section directly or else from below section.** Find the practice questions of this directory [here](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit#question-set-from-interview-prep-directory).
 
 > **_NOTE:_** *This is the premium conent.*
 
@@ -55,7 +55,7 @@ You can start from this section and follow along. This section also covers *Big 
 Topic Highlights
 > Complexity analysis, Prime Ladder, Merge Sorted Array, Insert in Arrray, Wage Calculator, Unicode Characters, String operations, String matching, String split, Output Formatting, Keyboard input, Literal, Adder, Arithmetic operations, Data type size ranges 
 
-<hr> 
+<hr>
  
 ## ``` Data Structure and Algorithm Training ```
 This directory covers from basic programming towards learning DSA. It was the part of my course taken from **CodingBlocks live Data Structure and Algo** batch.
