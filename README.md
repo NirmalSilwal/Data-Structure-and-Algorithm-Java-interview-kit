@@ -10,7 +10,9 @@ Keep an 👁️ on it. I will be adding **Data Structures and Algorithm** implem
 
 <hr>
 
-## Directory Structure
+## ``` Directory Structure ```
+
+
 ## [Interview Prep](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep)
 
 This directory has the solution to most of the famous coding interivew questions divided by topics from increasing order of difficulty and topics. **If you are time bounded, you can start practicing problems from this section directly or else from below section.**
@@ -46,7 +48,7 @@ This directory has the solution to most of the famous coding interivew questions
 
 <hr>
 
-## For absolute beginner
+## ``` For absolute beginner ```
 You can start from this section and follow along. This section also covers *Big O Analysis* to start off.
 - [ ] [Basic Programs](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Basic%20programs)
 
@@ -55,10 +57,11 @@ Topic Highlights
 
 <hr> 
  
-## Data Structure and Algorithm Training
+## ``` Data Structure and Algorithm Training ```
 This directory covers from basic programming towards learning DSA. It was the part of my course taken from **CodingBlocks live Data Structure and Algo** batch.
 > **_NOTE:_** *This is the premium conent. Find the topic that interests you from topic highlights section or else follow day wise. You can finish each day content in 1 day to keep you going and stay motivated. Don't overdo and don't underdo. Try to be as much consistent.*
- 
+<br/>
+
 Day wise Lesson | Topic Category | Topic Highlights
 ------------ | ------------- | -------------
 [Day 1](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/CodingBlocks%20Training/Day1) | Basic Programming | Largest number, Loops demo, Function demo, Prime check, Simple interest, Sum of Natural numbers, Equal Remainder 
@@ -91,7 +94,7 @@ Day wise Lesson | Topic Category | Topic Highlights
 
 <hr>
 
-## GeeksForGeeks
+## ``` GeeksForGeeks ```
 - [All GFG DSA contents](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/GeeksForGeeks)
 > - [ ] [Arrays](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/GeeksForGeeks/Arrays)
 > - [ ] [Mathematics](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/GeeksForGeeks/Mathematics)
@@ -99,7 +102,8 @@ Day wise Lesson | Topic Category | Topic Highlights
 
 <hr>
 
-## Leetcode 
+## ``` Leetcode ```
+
 ```
 Explore Cards
 ```
@@ -111,8 +115,8 @@ Monthly Challenges
 > - [ ] [August Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/Leetcode_August_Challenge)
 > - [ ] [October Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/Leetcode_October_Challenge)
 
-```
-Questions by difficulty order
+``` 
+Questions by difficulty order 
 ```
 - [ ] Easy
 - [ ] [Medium](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/medium)
@@ -122,7 +126,18 @@ Questions by difficulty order
 <hr>
 
 
-### Top Interview Questions
+## ``` Top Interview Questions ```
+
 [root directory](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Top%20Questions)
  > - [ ] [Facebook](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Top%20Questions/Facebook)
  > - [ ] [Frequent Questions](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Top%20Questions/FrequentQuestions)
+
+<hr>
+
+## ``` Question set from Interview Prep directory ```
+<br/>
+
+SN. | Topics, DSA | Practice Questions
+------------ | ------------- | -------------
+1 | Basic Programming | various Pattern printing, Mathematical problems, Fibonacci Series, GCD, Prime number, Reverse number, Sum N Natural numbers, else if demo
+2 | Data types | Temperature table, upper or lower case check 
