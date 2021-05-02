@@ -8,8 +8,11 @@ Keep an 👁️ on it. I will be adding **Data Structures and Algorithm** implem
 
 *I AM WORKING EVERYDAY ON IT!*
 
+<hr>
+
 ## Directory Structure
 ## [Interview Prep](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep)
+
 This directory has the solution to most of the famous coding interivew questions divided by topics from increasing order of difficulty and topics. **If you are time bounded, you can start practicing problems from this section directly or else from below section.**
 
 > **_NOTE:_** *This is the premium conent.*
@@ -41,13 +44,16 @@ This directory has the solution to most of the famous coding interivew questions
 > - [ ] [Generic Tree](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section23_GenericTree)
 > - [ ] [Binary Tree](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/section24_BinaryTree)
 
+<hr>
 
 ## For absolute beginner
 You can start from this section and follow along. This section also covers *Big O Analysis* to start off.
-> - [ ] [Basic Programs](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Basic%20programs)
+- [ ] [Basic Programs](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Basic%20programs)
 
 Topic Highlights
-> > Complexity analysis, Prime Ladder, Merge Sorted Array, Insert in Arrray, Wage Calculator, Unicode Characters, String operations, String matching, String split, Output Formatting, Keyboard input, Literal, Adder, Arithmetic operations, Data type size ranges 
+> Complexity analysis, Prime Ladder, Merge Sorted Array, Insert in Arrray, Wage Calculator, Unicode Characters, String operations, String matching, String split, Output Formatting, Keyboard input, Literal, Adder, Arithmetic operations, Data type size ranges 
+
+<hr> 
  
 ## Data Structure and Algorithm Training
 This directory covers from basic programming towards learning DSA. It was the part of my course taken from **CodingBlocks live Data Structure and Algo** batch.
@@ -81,3 +87,42 @@ Day wise Lesson | Topic Category | Topic Highlights
 [Day 23](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/CodingBlocks%20Training/Day25) | Heaps | Heap implementation
 [Day 24]() | Dynamic Programming | Fibonacci problem iterative, recursive, DP approach
 [Recursion](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/CodingBlocks%20Training/Recursion) | Recursion | Bubble Sort, N Factorial, First Index, Last Index, Nth Fibonacci, Power of N, Print skip Decreasing Increasing, check Sorted Array, print Increasing, print Decreasing, Sum of N terms
+
+
+<hr>
+
+## GeeksForGeeks
+- [All GFG DSA contents](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/GeeksForGeeks)
+> - [ ] [Arrays](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/GeeksForGeeks/Arrays)
+> - [ ] [Mathematics](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/GeeksForGeeks/Mathematics)
+> - [ ] [Graphs](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/GeeksForGeeks/Graph)
+
+<hr>
+
+## Leetcode 
+```
+Explore Cards
+```
+  > - [ ] [Arrays](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/Explore_cards/Arrays)
+
+```
+Monthly Challenges
+```
+> - [ ] [August Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/Leetcode_August_Challenge)
+> - [ ] [October Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/Leetcode_October_Challenge)
+
+```
+Questions by difficulty order
+```
+- [ ] Easy
+- [ ] [Medium](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/medium)
+- [ ] Hard
+
+
+<hr>
+
+
+### Top Interview Questions
+[root directory](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Top%20Questions)
+ > - [ ] [Facebook](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Top%20Questions/Facebook)
+ > - [ ] [Frequent Questions](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Top%20Questions/FrequentQuestions)
