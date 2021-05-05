@@ -44,4 +44,21 @@ public class IntersectionNodeLinkedList {
 		}
 		return size;
 	}
+
+	// approach 2
+	public static ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
+
+		if (headA == null || headB == null)
+			return null;
+
+		ListNode tempA = headA;
+		ListNode tempB = headB;
+
+		while (tempA != tempB) {
+			tempA = tempA == null ? headB : tempA.next;
+			tempB = tempB == null ? headA : tempB.next;
+		}
+
+		return tempA;
+	}
 }
