@@ -4,7 +4,8 @@ import java.util.HashMap;
 
 public class FirstUniqueCharacterInString387 {
 
-	public static int firstUniqChar(String s) {
+	// O(N) Time
+	public static int firstUniqChar1(String s) {
 
 		HashMap<Character, Integer> map = new HashMap<>();
 
@@ -19,6 +20,22 @@ public class FirstUniqueCharacterInString387 {
 
 		for (int i = 0; i < s.length(); i++) {
 			if (map.get(s.charAt(i)) == 1)
+				return i;
+		}
+		return -1;
+	}
+
+	public static int firstUniqChar(String s) {
+
+		int[] count = new int[26]; // for all alphabets
+		char[] arr = s.toCharArray();
+
+		for (int i = 0; i < arr.length; i++) {
+			count[arr[i] - 'a']++; // track count of each character in String
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+			if (count[arr[i] - 'a'] == 1)
 				return i;
 		}
 		return -1;
