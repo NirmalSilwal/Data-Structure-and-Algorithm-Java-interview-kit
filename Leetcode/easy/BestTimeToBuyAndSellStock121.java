@@ -3,7 +3,7 @@ package easy;
 public class BestTimeToBuyAndSellStock121 {
 
 	// O(N^2) Time | O(1) Space
-	public static int maxProfit(int[] prices) {
+	public static int maxProfit1(int[] prices) {
 
 		int max = 0;
 
@@ -22,9 +22,40 @@ public class BestTimeToBuyAndSellStock121 {
 		return max;
 	}
 
+	// using Kadance's algorithm
+	// O(N) Time | O(1) Space
+	public static int maxProfit(int[] prices) {
+
+		if (prices.length < 2)
+			return 0;
+
+		int max = 0;
+		int currentMax = 0;
+
+		for (int i = 1; i < prices.length; i++) {
+
+			currentMax = currentMax + (prices[i] - prices[i - 1]);
+
+			if (currentMax > max) {
+				max = currentMax;
+			}
+
+			if (currentMax < 0) {
+				currentMax = 0;
+			}
+		}
+
+		return max;
+	}
+
 	public static void main(String[] args) {
-		// int[] prices = { 7, 1, 5, 3, 6, 4 };
-		int[] prices = { 7, 6, 4, 3, 1 };
+		int[] prices = { 7, 1, 5, 3, 6, 4 };
+		// int[] prices = { 7, 6, 4, 3, 1 };
 		System.out.println(maxProfit(prices));
 	}
 }
+
+// for (int i = 1; i < prices.length; i++) {
+// currentMax = Math.max(0, currentMax + prices[i] - prices[i - 1]);
+// max = Math.max(max, currentMax);
+// }
