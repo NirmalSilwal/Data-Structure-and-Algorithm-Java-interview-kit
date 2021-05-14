@@ -47,26 +47,28 @@ public class BestTimeToBuyAndSellStock121 {
 
 		return max;
 	}
-
+	
+	// O(N) Time | O(1) Space
 	public static int maxProfit3(int[] prices) {
 
-		int minVal = Integer.MAX_VALUE;
+		int minBuyPrice = Integer.MAX_VALUE;
 		int maxProfit = 0;
 
-		for (int i = 0; i < prices.length; i++) {
-			if (prices[i] < minVal) {
-				minVal = prices[i];
-			} else if (prices[i] - minVal > maxProfit) {
-				maxProfit = prices[i] - minVal;
+		for (int currentPrice : prices) {
+
+			if (currentPrice < minBuyPrice) {
+				minBuyPrice = currentPrice;
+
+			} else if (currentPrice - minBuyPrice > maxProfit) {
+				maxProfit = currentPrice - minBuyPrice;
 			}
 		}
-
 		return maxProfit;
 	}
 
 	public static void main(String[] args) {
-		 int[] prices = { 7, 1, 5, 3, 6, 4 };
-//		int[] prices = { 7, 6, 4, 3, 1 };
+		// int[] prices = { 7, 1, 5, 3, 6, 4 };
+		int[] prices = { 7, 6, 4, 3, 1 };
 		System.out.println(maxProfit3(prices));
 	}
 }
