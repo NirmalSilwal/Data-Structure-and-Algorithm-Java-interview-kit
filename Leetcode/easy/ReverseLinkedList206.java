@@ -19,6 +19,7 @@ public class ReverseLinkedList206 {
 		}
 	}
 
+	// O(N) Time | O(1) Space
 	public ListNode reverseList1(ListNode head) {
 
 		ListNode newHead = null;
@@ -32,6 +33,7 @@ public class ReverseLinkedList206 {
 		return newHead;
 	}
 
+	// O(N) Time | O(N) Space
 	public ListNode reverseList(ListNode head) {
 
 		if (head == null || head.next == null) {
