@@ -19,7 +19,7 @@ public class ReverseLinkedList206 {
 		}
 	}
 
-	public ListNode reverseList(ListNode head) {
+	public ListNode reverseList1(ListNode head) {
 
 		ListNode newHead = null;
 
@@ -29,6 +29,20 @@ public class ReverseLinkedList206 {
 			newHead = head;
 			head = next;
 		}
+		return newHead;
+	}
+
+	public ListNode reverseList(ListNode head) {
+
+		if (head == null || head.next == null) {
+			return head;
+		}
+
+		ListNode newHead = reverseList(head.next);	
+
+		head.next.next = head;
+		head.next = null;
+		
 		return newHead;
 	}
 }
