@@ -8,12 +8,14 @@ Keep an 👁️ on it. I will be adding **Data Structures and Algorithm** implem
 
 *I AM WORKING EVERYDAY ON IT!*
 
+## [Learn about Google Interview Process](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode#google-interview--)
+
 <hr>
 
 ## ``` Directory Structure ```
 
 
-## [Interview Prep](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep)
+## [Interview Prep](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep)<img src = "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191021181907/Google-Interview-Preparation-For-Software-Engineer-%E2%80%93-A-Complete-Guide.png" height = "400" width = "600" align = "right">
 
 This directory has the solution to most of the famous coding interivew questions divided by topics from increasing order of difficulty and topics. **If you are time bounded, you can start practicing problems from this section directly or else from below section.** 
 - [ ] [All practice problems in this directory here](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit#question-set-from-interview-prep-directory).
@@ -103,7 +105,7 @@ Day wise Lesson | Topic Category | Topic Highlights
 
 <hr>
 
-## ``` Leetcode ```
+## [``` Leetcode ```](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode)
 
 ```
 Explore Cards
@@ -113,15 +115,16 @@ Explore Cards
 ```
 Monthly Challenges
 ```
-> - [ ] [August Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/Leetcode_August_Challenge)
-> - [ ] [October Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/Leetcode_October_Challenge)
-
+> - [ ] [August Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/DailyChallenges/Leetcode_August_Challenge)
+> - [ ] [October Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/DailyChallenges/Leetcode_October_Challenge)
+> - [ ] [May Challenge](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/DailyChallenges/MayChallenges)
+> 
 ``` 
 Questions by difficulty order 
 ```
-- [ ] Easy
+- [ ] [Easy](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/easy)
 - [ ] [Medium](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/medium)
-- [ ] Hard
+- [ ] [Hard](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/hard)
 
 
 <hr>
