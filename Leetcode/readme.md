@@ -1,5 +1,6 @@
-# ```Google Interview``` 🚀 👨‍💻
-<hr>
+# ```Google Interview``` 🚀 👨‍💻 
+
+<img src = "https://cdn.arstechnica.net/wp-content/uploads/2019/05/getty-googleplex-office-1.jpg" align = "center" height = "550" width = "1000" alt = "Google office">
 
 ## ``` Introduction``` :wave:
 
@@ -29,6 +30,8 @@ Your interviewer will ask one or two coding questions with lots of follow up que
 4. Optimize the code, follow it with test cases and find any bugs.
 
 ## ``Google Onsite Interview`` :office:
+<img src = "https://s3.amazonaws.com/images.seroundtable.com/google-bike-sign-1552908022.jpg" alt = "Google bike" align = "right" height = "200" width = "300">
+
 This is it! You've passed the phone interviews and now you have received an onsite interview invitation. Onsite interview is the most important process of a Google interview, and your ability to receive an offer will largely depend on your performance during onsite interviews. Traditionally, the percentage of candidates who will receive an offer after onsite interview is about [1 of 5 to 1 of 7](https://www.quora.com/What-percentage-of-candidates-convert-a-Google-onsite-interview-into-an-offer).
 
 You'll usually meet with five Googlers for about 30 to 45 minutes each, and one of them will be your lunch interviewer who does not submit interview feedback, so take this opportunity to freely ask questions.
@@ -48,6 +51,7 @@ Technical onsite interviews at Google were historically conducted on whiteboards
 Throughout the interview process, feel free to ask your interviewers for clarification to make sure you fully understand their questions.
 
 ## ``Google Hiring Committee`` :technologist:	
+<img src = "https://cdn.sanity.io/images/xeonec4d/production/91690bc2b53f5675ee1296d391e1f599ebe41969-780x678.png?w=780" alt = "Google hiring committee procces" align = "right" height = "250" width = "350">
 After the onsite interview, each of your interviewers (except the lunch interviewer) will have to submit detailed interview feedback. Each interviewer's feedback is kept hidden from other interviewers to ensure one's feedback does not influence the others. Each interviewer will assign a score and make a Hire / No Hire decision.
 
 Assume the scores from the feedback are good enough, your whole packet will be moved forward to the hiring committee for review.
