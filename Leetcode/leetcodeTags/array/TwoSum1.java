@@ -54,10 +54,27 @@ public class TwoSum1 {
 		return ans;
 	}
 
+	public static int[] twoSum3(int[] nums, int target) {
+
+		HashMap<Integer, Integer> map = new HashMap<>();
+
+		for (int index = 0; index < nums.length; index++) {
+
+			int targetSum = target - nums[index];
+
+			if (map.containsKey(targetSum)) {
+				return new int[] { index, map.get(targetSum) };
+			} else {
+				map.put(nums[index], index);
+			}
+		}
+		return new int[2];
+	}
+
 	public static void main(String[] args) {
 		int[] nums = { 2, 7, 11, 15 };
 		int target = 9;
 
-		System.out.println(Arrays.toString(twoSum(nums, target)));
+		System.out.println(Arrays.toString(twoSum3(nums, target)));
 	}
 }
