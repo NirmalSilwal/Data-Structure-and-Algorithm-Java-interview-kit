@@ -1,10 +1,11 @@
 package leetcodeTags.array;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class TwoSum1 {
 
-	public static int[] twoSum(int[] nums, int target) {
+	public static int[] twoSum2(int[] nums, int target) {
 
 		if (nums.length < 2)
 			return null;
@@ -24,6 +25,29 @@ public class TwoSum1 {
 						ans[1] = cursor;
 					}
 				}
+			}
+		}
+
+		return ans;
+	}
+
+	public static int[] twoSum(int[] nums, int target) {
+
+		int[] ans = new int[2];
+
+		// number and index
+		HashMap<Integer, Integer> map = new HashMap<>();
+
+		for (int index = 0; index < nums.length; index++) {
+
+			if (!map.containsKey(nums[index])) {
+
+				map.put(target - nums[index], index);
+
+			} else {
+				ans[0] = index;
+				ans[1] = map.get(nums[index]);
+				break;
 			}
 		}
 
