@@ -20,6 +20,9 @@ public class TakingUserInputPractice {
 
 		int n = Integer.parseInt(st.nextToken());
 
+		FastReader s = new FastReader();
+		int number = s.nextInt();
+		System.out.println(number);
 	}
 
 	// approach 3 - using BufferedReader and StringTokenizer with user defined
@@ -56,13 +59,13 @@ public class TakingUserInputPractice {
 		}
 
 		String nextLine() {
-			String s = "";
+			String str = "";
 			try {
-				s = br.readLine();
+				str = br.readLine();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return s;
+			return str;
 		}
 	}
 }
