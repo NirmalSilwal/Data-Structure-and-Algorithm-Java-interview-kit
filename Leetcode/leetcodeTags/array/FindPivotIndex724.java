@@ -1,18 +1,18 @@
 package leetcodeTags.array;
 
+/*
+ * LC post link: https://leetcode.com/problems/find-pivot-index/discuss/1231473/java-solution-brute-force-and-optimized-code
+ */
 public class FindPivotIndex724 {
 
-	public static int pivotIndex(int[] nums) {
+	// O(N^2) Time | O(1) Space
+	public static int pivotIndex1(int[] nums) {
 
 		for (int i = 0; i < nums.length; i++) {
 			int lsum = sumLeft(i, nums);
 			int rsum = sumRight(i, nums);
 			if (lsum == rsum) {
-				if (i == 0 ) {
-					return 0;
-				} else {
-					return i;
-				}
+				return i;
 			}
 		}
 		return -1;
@@ -40,8 +40,28 @@ public class FindPivotIndex724 {
 		return sum;
 	}
 
+	// O(N) Time | O(1) Space
+	public static int pivotIndex(int[] nums) {
+		int totalSum = 0;
+		for (int n : nums)
+			totalSum += n;
+
+		int runningTotal = 0; // prefix sum
+
+		for (int i = 0; i < nums.length; i++) {
+
+			int lsum = runningTotal;
+			runningTotal += nums[i];
+			int rsum = totalSum - runningTotal;
+
+			if (lsum == rsum)
+				return i;
+		}
+		return -1;
+	}
+
 	public static void main(String[] args) {
 		int[] nums = { -1, -1, 0, 1, 1, 0 };
-		System.out.println(pivotIndex(nums));
+		System.out.println(pivotIndex(nums)); // 5
 	}
 }
