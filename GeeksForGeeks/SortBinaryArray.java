@@ -28,12 +28,29 @@ public class SortBinaryArray {
 		arr[j] = temp;
 	}
 
+	// approach 2- O(N) Time | O(1) Space
+	public static void sortBinaryArr2(int[] arr) {
+		int zeroth = 0;
+
+		// replacing all initial items with zero with total zeros available
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == 0) {
+				arr[zeroth] = 0;
+				zeroth++;
+			}
+		}
+		// making all 1's after all zeros
+		for (int i = zeroth; i < arr.length; i++) {
+			arr[i] = 1;
+		}
+	}
+
 	public static void main(String[] args) {
 		// int[] arr = { 1, 0, 0, 1, 0, 1, 0, 1, 1, 1 };
-		// int[] arr = { 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0 };
+		int[] arr = { 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0 };
 		// int[] arr = { 1, 1, 0, 1, 0, 0 };
-		int[] arr = { 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0 };
-		sortBinaryArr(arr);
+		// int[] arr = { 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0 };
+		sortBinaryArr2(arr);
 		System.out.println(Arrays.toString(arr));
 	}
 }
