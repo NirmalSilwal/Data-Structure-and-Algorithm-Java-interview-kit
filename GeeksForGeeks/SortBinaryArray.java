@@ -19,7 +19,6 @@ public class SortBinaryArray {
 				}
 			}
 		}
-
 	}
 
 	private static void swap(int[] arr, int i, int j) {
@@ -45,12 +44,29 @@ public class SortBinaryArray {
 		}
 	}
 
+	// using partitioning logic of quick sort
+	// O(N) time | O(1) Space
+	public static void sortBinaryArr3(int[] arr) {
+
+		int pivotElement = 1;
+		int pivotIndex = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] < pivotElement) {
+				swap(arr, i, pivotIndex);
+				pivotIndex++;
+			}
+		}
+	}
+
 	public static void main(String[] args) {
+
 		// int[] arr = { 1, 0, 0, 1, 0, 1, 0, 1, 1, 1 };
-		int[] arr = { 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0 };
-		// int[] arr = { 1, 1, 0, 1, 0, 0 };
+		// int[] arr = { 1, 1, 1, 0, 0, 1, 1, 0, 1, 0, 0 };
 		// int[] arr = { 1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0 };
-		sortBinaryArr2(arr);
+
+		int[] arr = { 1, 1, 0, 1, 0, 0 };
+		sortBinaryArr3(arr);
 		System.out.println(Arrays.toString(arr));
 	}
 }
