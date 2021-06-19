@@ -127,6 +127,8 @@ Questions by difficulty order
 - [ ] [Hard](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/hard)
 
 
+### [Leetcode Tags](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode/leetcodeTags)
+
 <hr>
 
 
@@ -170,4 +172,12 @@ SN. | Topics, DSA | Practice Questions
 26 | [Java Collections](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/collections) | Maps, Set, Vector, Queue Interface demos
 27 | [OOPS](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Interview%20Prep/OOPS) | OOPS demo
 
+<hr>
 
+## ```Codeforces```
+ - [Live contest](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Codeforces/livecontest)
+ - [Virtual contest](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Codeforces/virtualContest)
+
+<hr>
+
+## [CodingNinja](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/CodingNinja)
