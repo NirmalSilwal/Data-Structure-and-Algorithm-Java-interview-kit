@@ -16,28 +16,48 @@ public class B {
 		int t = sc.nextInt();
 		for (int tt = 0; tt < t; tt++) {
 			int n = sc.nextInt();
-			int[] arr = sc.readArray(n);
-			solveTask(arr);
+			long[] arr = new long[n + 1];
+
+			// read array
+			for (int i = 1; i < arr.length; i++) {
+				arr[i] = sc.nextInt();
+			}
+			solveTask2(arr, n);
 		}
 
 		out.close();
 	}
 
-	private static void solveTask(int[] arr) {
+	private static void solveTask2(long[] arr, int n) {
 		int count = 0;
 
-		for (int i = 0; i < arr.length; i++) {
+		for (int i = 1; i <= n; i++) {
 
-			for (int j = i + 1; j < arr.length; j++) {
+			for (long j = arr[i] - i; j <= n; j += arr[i]) {
 
-				int ci = i + 1, cj = j + 1;
+				if (j >= 0) {
 
-				if ((arr[i] * arr[j]) == (ci + cj))
-					count++;
+					if (arr[i] * arr[(int) j] == i + j && i < j)
+						count++;
+				}
 			}
 		}
 		System.out.println(count);
 	}
+
+	// this will get TLE
+	/*
+	 * private static void solveTask(int[] arr) { int count = 0;
+	 * 
+	 * for (int i = 0; i < arr.length; i++) {
+	 * 
+	 * for (int j = i + 1; j < arr.length; j++) {
+	 * 
+	 * int ci = i + 1, cj = j + 1;
+	 * 
+	 * if ((arr[i] * arr[j]) == (ci + cj)) count++; } }
+	 * System.out.println(count); }
+	 */
 
 	static class FastReader {
 		BufferedReader br;
