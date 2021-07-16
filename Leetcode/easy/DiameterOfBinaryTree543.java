@@ -22,7 +22,7 @@ public class DiameterOfBinaryTree543 {
 
 	int ans = 0;
 
-	public int diameterOfBinaryTree(TreeNode root) {
+	public int diameterOfBinaryTree1(TreeNode root) {
 		if (root == null)
 			return 0;
 
@@ -33,8 +33,8 @@ public class DiameterOfBinaryTree543 {
 		if (diameter > ans)
 			ans = diameter;
 
-		diameterOfBinaryTree(root.left);
-		diameterOfBinaryTree(root.right);
+		diameterOfBinaryTree1(root.left);
+		diameterOfBinaryTree1(root.right);
 
 		return ans;
 	}
@@ -51,4 +51,31 @@ public class DiameterOfBinaryTree543 {
 
 		return Math.max(lheight, rheight);
 	}
+
+	private int height1(TreeNode node) {
+		if (node == null)
+			return -1;
+
+		int lheight = height1(node.left);
+		int rheight = height1(node.right);
+
+		return Math.max(lheight, rheight) + 1;
+	}
+
+	public int diameterOfBinaryTree(TreeNode root) {
+		if (root == null)
+			return 0;
+		// max distance between two nodes of LHS
+		int leftDia = diameterOfBinaryTree(root.left);
+		// max distance between two nodes of RHS
+		int rightDia = diameterOfBinaryTree(root.right);
+
+		// diameter that passes through the root node
+		int rootWayDia = height1(root.left) + height1(root.right) + 2;
+
+		int dia = Math.max(rootWayDia, Math.max(leftDia, rightDia));
+
+		return dia;
+	}
+
 }
