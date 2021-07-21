@@ -25,12 +25,13 @@ public class MaximumSubarrayLC53 {
 
 		int[] dp = new int[nums.length];
 		dp[0] = nums[0];
-		
+
 		int maxsum = nums[0];
 
 		for (int i = 1; i < nums.length; i++) {
 
-			dp[i] = (nums[i] > dp[i - 1]) ? nums[i] : nums[i] + dp[i - 1];
+			// dp[i] = (nums[i] > dp[i - 1]) ? nums[i] : nums[i] + dp[i - 1];
+			dp[i] = Math.max(nums[i], nums[i] + dp[i - 1]);
 
 			maxsum = Math.max(maxsum, dp[i]);
 		}
