@@ -31,7 +31,7 @@ public class EvenSpacedArray {
 		int largest = arr[0];
 		int smallest = arr[1];
 
-		for (int i = 2; i < arr.length; i++) {
+		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] > largest)
 				largest = arr[i];
 			if (arr[i] < smallest)
