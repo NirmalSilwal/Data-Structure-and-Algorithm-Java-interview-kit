@@ -1,5 +1,7 @@
 package MustDoEasyList;
 
+import java.util.Stack;
+
 public class TrimABinarySearchTree669 {
 
 	class TreeNode {
@@ -21,7 +23,7 @@ public class TrimABinarySearchTree669 {
 		}
 	}
 
-	// correct one
+	// recurssive solution
 	public TreeNode trimBST(TreeNode root, int low, int high) {
 
 		if (root == null)
@@ -41,50 +43,61 @@ public class TrimABinarySearchTree669 {
 		return root;
 	}
 
-	// 1st approach - has bug on it
-	/*
-	 * public TreeNode trimBST(TreeNode root, int low, int high) {
-	 * 
-	 * // single node case if (root.left == null && root.right == null) { if
-	 * (root.val >= low && root.val <= high) return root; else return new
-	 * TreeNode(); }
-	 * 
-	 * // if current node has no left-subtree present if (root.left == null &&
-	 * root.right != null) { // ignore left- subtree and process right half only
-	 * if (root.val >= low && root.val <= high) { TreeNode newNode = new
-	 * TreeNode(root.val); newNode.right = trimBST(root.right, low, high);
-	 * return newNode; } else { if (root.right.val >= low && root.right.val <=
-	 * high) { TreeNode newNode = new TreeNode(root.right.val); newNode.left =
-	 * trimBST(root.right.left, low, high); newNode.right =
-	 * trimBST(root.right.right, low, high); return newNode; } else return null;
-	 * } }
-	 * 
-	 * // if current node has no right-subtree present if (root.right == null &&
-	 * root.left != null) { // ignore right- subtree and process left half only
-	 * if (root.val >= low && root.val <= high) { TreeNode newNode = new
-	 * TreeNode(root.val); newNode.left = trimBST(root.left, low, high); return
-	 * newNode; } else { if (root.left.val >= low && root.left.val <= high) {
-	 * TreeNode newNode = new TreeNode(root.left.val); newNode.left =
-	 * trimBST(root.left.left, low, high); newNode.right =
-	 * trimBST(root.left.right, low, high); return newNode; } else return null;
-	 * } }
-	 * 
-	 * // if node has both left and right subtree
-	 * 
-	 * if (low >= root.val) { // ignore left subtree if (root.val >= low &&
-	 * root.val <= high) { TreeNode newNode = new TreeNode(root.val);
-	 * newNode.right = trimBST(root.right, low, high); return newNode; } else
-	 * return null;
-	 * 
-	 * } else if (high <= root.val) { // ignore right subtree if (root.val >=
-	 * low && root.val <= high) { TreeNode newNode = new TreeNode(root.val);
-	 * newNode.left = trimBST(root.left, low, high); return newNode; } else
-	 * return null;
-	 * 
-	 * } else { // this will have node from both left and right subtree if
-	 * (root.val >= low && root.val <= high) { TreeNode newNode = new
-	 * TreeNode(root.val); newNode.left = trimBST(root.left, low, high);
-	 * newNode.right = trimBST(root.right, low, high); return newNode; } else
-	 * return null; } }
-	 */
+	// iterative solution
+	public TreeNode trimBST_iterative(TreeNode root, int low, int high) {
+
+		if (root == null)
+			return root;
+
+		Stack<TreeNode> stack = new Stack<>();
+		TreeNode trimmedRoot = getTrimmedBSTRoot(root, low, high);
+
+		stack.push(trimmedRoot);
+		boolean flag = false;
+
+		// DFS traversal
+		while (!stack.isEmpty()) {
+			TreeNode current = stack.pop();
+
+			if (current != null) {
+
+				if (current.left != null && current.left.val < low) {
+					current.left = current.left.right;
+					flag = true;
+				}
+
+				if (current.right != null && current.right.val > high) {
+					current.right = current.right.left;
+					flag = true;
+				}
+
+				if (flag)
+					stack.push(current);
+				else {
+					if (current.left != null)
+						stack.push(current.left);
+					if (current.right != null)
+						stack.push(current.right);
+				}
+			}
+			flag = false;
+		}
+
+		return trimmedRoot;
+	}
+
+	private TreeNode getTrimmedBSTRoot(TreeNode root, int low, int high) {
+
+		while (root != null && (root.val < low || root.val > high)) {
+
+			if (root.val < low)
+				root = root.right;
+
+			if (root.val > high)
+				root = root.left;
+		}
+
+		return root;
+	}
+
 }
