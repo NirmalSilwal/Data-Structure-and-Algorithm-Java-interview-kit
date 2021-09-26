@@ -57,13 +57,63 @@ public class RomanToInteger13 {
 		map.put("CM", 900);
 	}
 
-	public static void main(String[] args) {
-		System.out.println(romanToInt("III"));
-		System.out.println(romanToInt("IV"));
-		System.out.println(romanToInt("IX"));
-		System.out.println(romanToInt("LVIII"));
-		System.out.println(romanToInt("MCMXCIV"));
-		System.out.println(romanToInt("MDCXCV"));
+	// optimal approach
+	public static int romanToInt2(String s) throws Exception {
+		int ans = 0;
+		int len = s.length();
+
+		for (int i = 0; i < len - 1; i++) {
+
+			int currValue = getRomanValue(s.charAt(i));
+			int nextValue = getRomanValue(s.charAt(i + 1));
+
+			if (currValue == -1 || nextValue == -1) {
+				throw new Exception("Invalid character found...");
+			}
+
+			if (currValue < nextValue) {
+				ans -= currValue;
+			} else {
+				ans += currValue;
+			}
+		}
+
+		int lastCharValue = getRomanValue(s.charAt(len - 1));
+
+		return ans + lastCharValue;
+	}
+
+	private static int getRomanValue(char next) {
+		switch (next) {
+		case 'I':
+			return 1;
+		case 'V':
+			return 5;
+		case 'X':
+			return 10;
+		case 'L':
+			return 50;
+		case 'C':
+			return 100;
+		case 'D':
+			return 500;
+		case 'M':
+			return 1000;
+		}
+		return -1;
+	}
+
+	public static void main(String[] args) throws Exception {
+		// System.out.println(romanToInt("III"));
+		// System.out.println(romanToInt("IV"));
+		// System.out.println(romanToInt("IX"));
+		// System.out.println(romanToInt("LVIII"));
+		// System.out.println(romanToInt("MCMXCIV"));
+		System.out.println(romanToInt2("MDCXCV"));
+
+		System.out.println(romanToInt2("IV"));
+
+		// System.out.println(getRomanValue('M'));
 
 		/*
 		 * testing character concatenation
