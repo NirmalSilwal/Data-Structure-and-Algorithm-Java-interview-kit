@@ -1,5 +1,8 @@
 package LinkedList;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class LinkedListCycleII142 {
 
 	class ListNode {
@@ -10,6 +13,22 @@ public class LinkedListCycleII142 {
 			val = x;
 			next = null;
 		}
+	}
+
+	// brute force way
+	public ListNode detectCycleII(ListNode head) {
+		if (head == null || head.next == null)
+			return null;
+
+		Map<ListNode, Boolean> map = new HashMap<>();
+
+		ListNode start = head;
+		while (start != null && !map.containsKey(start)) {
+			map.put(start, true);
+			start = start.next;
+		}
+
+		return start;
 	}
 
 	public ListNode detectCycle(ListNode head) {
