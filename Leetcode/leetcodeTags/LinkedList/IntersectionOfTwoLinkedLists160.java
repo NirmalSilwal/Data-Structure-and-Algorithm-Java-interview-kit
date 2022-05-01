@@ -39,4 +39,39 @@ public class IntersectionOfTwoLinkedLists160 {
 
 		return null;
 	}
+
+	public ListNode getIntersectionNode2(ListNode headA, ListNode headB) {
+		if (headA == null || headB == null)
+			return null;
+
+		int lenA = getLengthOfList(headA), lenB = getLengthOfList(headB);
+
+		int diff = Math.abs(lenA - lenB);
+
+		while (lenA > lenB) {
+			headA = headA.next;
+			lenA--;
+		}
+
+		while (lenB > lenA) {
+			headB = headB.next;
+			lenB--;
+		}
+
+		while (headA != headB) {
+			headA = headA.next;
+			headB = headB.next;
+		}
+
+		return headA;
+	}
+
+	private int getLengthOfList(ListNode head) {
+		int len = 0;
+		while (head != null) {
+			len++;
+			head = head.next;
+		}
+		return len;
+	}
 }
