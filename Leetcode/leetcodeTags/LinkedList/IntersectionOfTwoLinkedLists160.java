@@ -46,8 +46,6 @@ public class IntersectionOfTwoLinkedLists160 {
 
 		int lenA = getLengthOfList(headA), lenB = getLengthOfList(headB);
 
-		int diff = Math.abs(lenA - lenB);
-
 		while (lenA > lenB) {
 			headA = headA.next;
 			lenA--;
@@ -73,5 +71,20 @@ public class IntersectionOfTwoLinkedLists160 {
 			head = head.next;
 		}
 		return len;
+	}
+
+	// 3rd approach
+	public ListNode getIntersectionNode3(ListNode headA, ListNode headB) {
+		if (headA == null || headB == null)
+			return null;
+
+		ListNode dummy1 = headA, dummy2 = headB;
+
+		while (dummy1 != dummy2) {
+			dummy1 = dummy1 == null ? headB : dummy1.next;
+			dummy2 = dummy2 == null ? headA : dummy2.next;
+		}
+
+		return dummy1;
 	}
 }
