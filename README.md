@@ -105,7 +105,9 @@ Day wise Lesson | Topic Category | Topic Highlights
 
 <hr>
 
-## [``` Leetcode ```](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode)
+# [``` Leetcode ```](https://github.com/NirmalSilwal/Data-Structure-and-Algorithm-Java-interview-kit/tree/master/Leetcode)
+
+- ## [```Seperate Leetcode repository```](https://github.com/NirmalSilwal/leetcode)
 
 ```
 Explore Cards
